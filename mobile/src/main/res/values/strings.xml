@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MedAgenda</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_patient_details">patient_details</string>
+    <string name="title_activity_other">other</string>
+
+    <string-array name="colors">
+        <item> red </item>
+        <item> blue </item>
+        <item> orange </item>
+        <item> green </item>
+        <item> purple </item>
+    </string-array>
 </resources>

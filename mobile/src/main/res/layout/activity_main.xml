@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/lightBlueBG">
 
     <ListView android:id="@+id/listPatients"
               android:layout_height="match_parent"
               android:layout_width="match_parent"
-              android:divider="#e4e4e4"
-              android:dividerHeight="10.0sp"
-        />
+              android:divider="@color/lightBlueBG"
+              android:dividerHeight="10dp"
+              android:paddingTop="10dp"/>
+
 
 </RelativeLayout>

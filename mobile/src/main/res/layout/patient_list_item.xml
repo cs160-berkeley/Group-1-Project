@@ -34,9 +34,7 @@
         android:id="@+id/textPatientTask"
         android:padding="12dp"
         android:layout_below="@+id/textPatientName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:textStyle="bold"/>
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,8 +43,7 @@
         android:text="Medium Text"
         android:id="@+id/textPatientTaskTime"
         android:padding="12dp"
-        android:layout_alignTop="@+id/textPatientTask"
-        android:layout_alignParentEnd="true"
-        android:textStyle="bold"/>
+        android:layout_below="@+id/textPatientRoom"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

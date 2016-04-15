@@ -64,6 +64,9 @@ class Patient implements Comparable<Patient>{
 class Task {
   String details;
   GregorianCalendar time; //TODO: Placeholder for whatever we use for the timer?
+  int color = 0;
+  boolean repeats;
+  int minBtwRepeats;
 
   String getTaskTime() {
     if (time == null) {

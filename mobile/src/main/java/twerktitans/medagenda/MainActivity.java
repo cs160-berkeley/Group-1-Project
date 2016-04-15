@@ -2,12 +2,19 @@ package twerktitans.medagenda;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -19,16 +26,17 @@ import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
 
+  static LinkedList<Patient> patients;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    LinkedList<Patient> patients = new LinkedList<>();
+    patients = new LinkedList<>();
     Patient p = new Patient();
     Task t = new Task();
-    p.name = "Eric Paolos";
-    p.room = "Jakobs 310";
+    p.name = "Eric Paulos";
+    p.room = "Jacobs 310";
     t.details = "Give coffee";
     t.time = new GregorianCalendar(2016, 4, 13, 14, 30);
     p.tasks.add(t);
@@ -50,6 +58,34 @@ public class MainActivity extends AppCompatActivity {
     ListView patientList = (ListView) findViewById(R.id.listPatients);
     PatientAdapter patientAdapter = new PatientAdapter(this, patients);
     patientList.setAdapter(patientAdapter);
+
+    patientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent detailIntent = new Intent(MainActivity.this, PatientDetails.class);
+        detailIntent.putExtra("INDEX", position);
+        startActivity(detailIntent);
+      }
+    });
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.action_bar, menu);
+    return true;
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      // Respond to the action bar's Up/Home button
+      case R.id.add:
+        //TODO: Add new patient from here
+        Log.d("T", "Add patient!");
+        return true;
+    }
+    return super.onOptionsItemSelected(item);
   }
 }
 
