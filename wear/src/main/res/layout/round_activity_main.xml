@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context=".MainActivity"
                 tools:deviceIds="wear_round">
-
     <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_round"/>
-</RelativeLayout>
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:background="#4BA0D0"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:text="MedAgenda"/>
+
+    <ListView
+        android:id="@+id/patients_view"
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+    </ListView>
+</LinearLayout>
