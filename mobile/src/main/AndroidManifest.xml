@@ -15,12 +15,32 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PatientDetails">
+        <activity
+            android:name=".PatientDetails"
+            android:label="Patient Details">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="twerktitans.medagenda.MainActivity"/>
         </activity>
-        <activity android:name=".NewTaskActivity">
+        <activity
+            android:name=".NewTaskActivity"
+            android:label="New Task">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="twerktitans.medagenda.PatientDetails"/>
+        </activity>
+        <activity
+            android:name=".NewStatusActivity"
+            android:label="New Status">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="twerktitans.medagenda.PatientDetails"/>
+        </activity>
+        <activity android:name=".NewPatientActivity"
+                  android:label="New Patient">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="twerktitans.medagenda.MainActivity"/>
         </activity>
     </application>
 
