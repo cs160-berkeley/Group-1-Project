@@ -37,7 +37,8 @@ public class PatientArrayAdapter extends BaseAdapter{
         repRow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //Send Toast or Launch Activity here
-                Toast.makeText(context, patients[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, patients[position], Toast.LENGTH_SHORT).show(); // temp
+                // wanna go to patient's to do list (go to new Activity)
             }
         });
         return repRow;
