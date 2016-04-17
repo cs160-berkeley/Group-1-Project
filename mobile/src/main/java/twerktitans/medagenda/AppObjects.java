@@ -1,5 +1,7 @@
 package twerktitans.medagenda;
 
+import android.graphics.Color;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
@@ -9,20 +11,29 @@ import java.util.LinkedList;
  * Created by WW on 4/12/2016.
  */
 class Patient implements Comparable<Patient>{
-  String name;
+  String firstName;
+  String lastName;
   String room;
+  String dateOfBirth;
   LinkedList<Task> tasks;
+  LinkedList<Status> statuses;
 
   Patient() {
     tasks = new LinkedList<>();
+    statuses = new LinkedList<>();
   }
 
-  String getFirstTask() {
+  String getName() {
+    return firstName + " " + lastName;
+  }
+
+  Task getFirstTask() {
     if (tasks.size() > 0)
     {
-      return tasks.getFirst().details;
+      return tasks.getFirst();
     }
-    return "";
+
+    return Task.getEmptyTask();
   }
 
   String getFirstTaskTime() {
@@ -48,7 +59,7 @@ class Patient implements Comparable<Patient>{
     Task thisFirstTask = this.tasks.getFirst();
     Task otherFirstTask = other.tasks.getFirst();
 
-    int result = thisFirstTask.time.compareTo(otherFirstTask.time);
+    int result = thisFirstTask.compareTo(otherFirstTask);
     if (result == 0) {
       return 0;
     }
@@ -61,12 +72,19 @@ class Patient implements Comparable<Patient>{
   }
 }
 
-class Task {
+class Task implements Comparable<Task> {
   String details;
-  GregorianCalendar time; //TODO: Placeholder for whatever we use for the timer?
-  int color = 0;
-  boolean repeats;
+  Calendar time; //TODO: Placeholder for whatever we use for the timer?
+  int color = Color.parseColor("#000000");
   int minBtwRepeats;
+
+  static Task getEmptyTask() {
+    Task temp = new Task();
+    temp.details = "";
+    temp.minBtwRepeats = 0;
+
+    return temp;
+  }
 
   String getTaskTime() {
     if (time == null) {
@@ -80,8 +98,64 @@ class Task {
     else {
       AMOrPM = "AM";
     }
-    return this.time.get(Calendar.HOUR) + ":" +
-           String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
-           AMOrPM;
+
+    int hour = this.time.get(Calendar.HOUR);
+
+    if (hour == 0) {
+      return (hour+12) + ":" +
+        String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
+        AMOrPM;
+    }
+    else {
+      return this.time.get(Calendar.HOUR) + ":" +
+        String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
+        AMOrPM;
+    }
+  }
+
+  @Override
+  public int compareTo(Task another) {
+    int result = this.time.compareTo(another.time);
+    if (result == 0) {
+      return 0;
+    }
+    else if (result < 0) {
+      return -1;
+    }
+    else {
+      return 1;
+    }
+  }
+}
+
+class Status {
+  String details;
+  Calendar time;
+
+  String getStatusTime() {
+    if (time == null) {
+      return "";
+    }
+
+    String AMOrPM;
+    if (this.time.get(Calendar.AM_PM) == Calendar.PM) {
+      AMOrPM = "PM";
+    }
+    else {
+      AMOrPM = "AM";
+    }
+
+    int hour = this.time.get(Calendar.HOUR);
+
+    if (hour == 0) {
+      return (hour+12) + ":" +
+        String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
+        AMOrPM;
+    }
+    else {
+      return this.time.get(Calendar.HOUR) + ":" +
+        String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
+        AMOrPM;
+    }
   }
 }

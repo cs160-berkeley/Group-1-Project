@@ -3,6 +3,7 @@ package twerktitans.medagenda;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
@@ -35,19 +37,24 @@ public class MainActivity extends AppCompatActivity {
     patients = new LinkedList<>();
     Patient p = new Patient();
     Task t = new Task();
-    p.name = "Eric Paulos";
+    p.firstName = "Eric";
+    p.lastName = "Paulos";
     p.room = "Jacobs 310";
     t.details = "Give coffee";
-    t.time = new GregorianCalendar(2016, 4, 13, 14, 30);
+    t.time = Calendar.getInstance();
+    t.color = Color.parseColor("#00FF00");
     p.tasks.add(t);
     patients.add(p);
 
     p = new Patient();
     t = new Task();
-    p.name = "Stephen Colbert";
+    p.firstName = "Stephen";
+    p.lastName = "Colbert";
     p.room = "Rm. 123";
     t.details = "Applaud him";
-    t.time = new GregorianCalendar(2016, 4, 13, 11, 0);
+    t.time = Calendar.getInstance();
+    t.time.add(Calendar.HOUR, 1);
+    t.color = Color.parseColor("#0000FF");
     p.tasks.add(t);
     patients.add(p);
 
@@ -55,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
     Log.d("t", patients.get(1).toString());
     Collections.sort(patients);
 
+    refreshList();
+  }
+
+  private void refreshList() {
     ListView patientList = (ListView) findViewById(R.id.listPatients);
     PatientAdapter patientAdapter = new PatientAdapter(this, patients);
     patientList.setAdapter(patientAdapter);
@@ -69,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
     });
   }
 
+  public void onStart()
+  {
+    super.onStart();
+    refreshList();
+  }
+
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
@@ -79,10 +96,11 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
-      // Respond to the action bar's Up/Home button
       case R.id.add:
         //TODO: Add new patient from here
         Log.d("T", "Add patient!");
+        Intent newPatientIntent = new Intent(MainActivity.this, NewPatientActivity.class);
+        startActivity(newPatientIntent);
         return true;
     }
     return super.onOptionsItemSelected(item);
@@ -126,10 +144,12 @@ class PatientAdapter extends BaseAdapter {
     TextView task = (TextView) patientListItem.findViewById(R.id.textPatientTask);
     TextView taskTime = (TextView) patientListItem.findViewById(R.id.textPatientTaskTime);
 
-    name.setText(patient.name);
+    name.setText(patient.getName());
     room.setText(patient.room);
 
-    task.setText(patient.getFirstTask());
+    Task firstTask = patient.getFirstTask();
+    task.setText(firstTask.details);
+    task.setTextColor(firstTask.color);
     taskTime.setText(patient.getFirstTaskTime()); //TODO: We'll need to change this when we figure out how to do timers
 
     return patientListItem;

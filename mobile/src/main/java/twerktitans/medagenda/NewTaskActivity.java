@@ -12,11 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,10 +36,11 @@ public class NewTaskActivity extends AppCompatActivity {
   static final int GREEN_CODE = Color.parseColor("#219653");
 
   static ArrayList<String> colorsList;
-  private int taskHour;
-  private int taskMinute;
   static final int TIME_DIALOG_ID = 0;
   final Task newTask = new Task();
+
+  private int taskHour;
+  private int taskMinute;
 
   private TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
@@ -42,6 +48,7 @@ public class NewTaskActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_new_task);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     if (colorsList == null) {
       colorsList = new ArrayList<>(5);
@@ -52,32 +59,46 @@ public class NewTaskActivity extends AppCompatActivity {
       colorsList.add("purple");
     }
 
+    setupStaticFields();
+    setupFormHandler();
+  }
+
+  private void setupStaticFields() {
+    TextView patientName = (TextView) findViewById(R.id.textNewTaskPatient);
+    TextView patientDoB = (TextView) findViewById(R.id.textNewTaskDoB);
+    TextView patientRoom = (TextView) findViewById(R.id.textNewTaskRoom);
+
+    final int index = getIntent().getIntExtra("INDEX", 0);
+
+    Patient p = MainActivity.patients.get(index);
+    patientName.setText(p.getName());
+    //patientDoB.setText(p.dateOfBirth);
+    patientRoom.setText(p.room);
+  }
+
+  private void setupFormHandler() {
     final TextView tv = (TextView) findViewById(R.id.textNewTaskTime);
+    final EditText detailsEdit = (EditText) findViewById(R.id.editNewTaskDetails);
+
+    newTask.time = Calendar.getInstance();
+
+    tv.setText(newTask.getTaskTime());
 
     mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
       public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        taskHour = hourOfDay;
-        taskMinute = minute;
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR, taskHour);
-        cal.set(Calendar.MINUTE, taskMinute);
+
+        Log.d("a", hourOfDay + "" + minute);
+
+        cal.set(Calendar.HOUR, hourOfDay);
+        cal.set(Calendar.MINUTE, minute);
 
         if (cal.compareTo(Calendar.getInstance()) <= 0) {
           //set to next day
           cal.add(Calendar.DAY_OF_YEAR, 1);
         }
-
-//        Log.d("day", cal.get(Calendar.HOUR) + " " + cal.get(Calendar.MINUTE) + " " + cal.get(Calendar.MONTH) + " " + cal.get(Calendar.DAY_OF_MONTH));
-
-        if (taskHour == 0) {
-          tv.setText((taskHour+12) + ":" + String.format("%02d", taskMinute) + " AM");
-        }
-        else if (taskHour > 12) {
-          tv.setText((taskHour-12) + ":" + String.format("%02d", taskMinute) + " PM");
-        }
-        else {
-          tv.setText(taskHour + ":" + String.format("%02d", taskMinute) + " AM");
-        }
+        newTask.time = cal;
+        tv.setText(newTask.getTaskTime());
       }
     };
 
@@ -95,12 +116,78 @@ public class NewTaskActivity extends AppCompatActivity {
     adapter.setDropDownViewResource(R.layout.color_spinner_item);
     colorSpinner.setAdapter(adapter);
 
-    ImageButton addTask = (ImageButton) findViewById(R.id.btnNewTaskAdd);
+    final RelativeLayout repeatsLayout = (RelativeLayout) findViewById(R.id.layoutNewTaskRepeats);
+
+    final ToggleButton repeatsToggle = (ToggleButton) findViewById(R.id.toggleNewTaskRepeats);
+    repeatsToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+          repeatsLayout.setVisibility(View.VISIBLE);
+        }
+        else {
+          repeatsLayout.setVisibility(View.INVISIBLE);
+        }
+      }
+    });
+
+    final EditText minEdit = (EditText) findViewById(R.id.editNewTaskMinutes);
+    final int index = getIntent().getIntExtra("INDEX", 0);
+    ImageButton addTask = (ImageButton) findViewById(R.id.btnNewStatusAdd);
     addTask.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         //create the task
+        if (detailsEdit.getText().length() == 0) {
+          Toast.makeText(NewTaskActivity.this, "Need details about the task", Toast.LENGTH_LONG).show();
+        }
+        else if (newTask.time == null) {
+          Toast.makeText(NewTaskActivity.this, "Need to set a time", Toast.LENGTH_LONG).show();
+        }
+        else {
+
+          getColor();
+          newTask.details = detailsEdit.getText().toString();
+          newTask.minBtwRepeats = 0;
+          getRepeats();
+
+          MainActivity.patients.get(index).tasks.add(newTask);
+          finish();
+        }
+      }
+
+      private void getColor() {
         int colorIndex = colorSpinner.getSelectedItemPosition();
+        switch (colorsList.get(colorIndex)) {
+          case "red":
+            newTask.color = RED_CODE;
+            break;
+          case "blue":
+            newTask.color = BLUE_CODE;
+            break;
+          case "orange":
+            newTask.color = ORANGE_CODE;
+            break;
+          case "green":
+            newTask.color = GREEN_CODE;
+            break;
+          default:
+            newTask.color = PURPLE_CODE;
+            break;
+        }
+      }
+
+      private void getRepeats() {
+        if (repeatsToggle.isChecked()) {
+          try {
+            newTask.minBtwRepeats = Integer.parseInt(minEdit.getText().toString());
+            Log.d("", newTask.minBtwRepeats + "");
+          } catch (NumberFormatException nfe) {
+
+          }
+        } else {
+          newTask.minBtwRepeats = 0;
+        }
       }
     });
   }
