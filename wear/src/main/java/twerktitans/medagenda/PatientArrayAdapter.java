@@ -1,12 +1,14 @@
 package twerktitans.medagenda;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by jefftan on 4/16/16.
@@ -14,12 +16,14 @@ import android.widget.Toast;
 public class PatientArrayAdapter extends BaseAdapter{
 
     private Context context;
-    private String [] patients;
-    private String [] times;
-    public PatientArrayAdapter(Context context, String [] patients,
-                               String [] times) {
+    private String patient_name;
+    private ArrayList<String> tasks;
+    private ArrayList<String> times;
+    public PatientArrayAdapter(Context context, String patient_name,
+                               ArrayList<String> tasks, ArrayList<String> times) {
         this.context = context;
-        this.patients = patients;
+        this.patient_name = patient_name;
+        this.tasks = tasks;
         this.times = times;
     }
 
@@ -28,17 +32,17 @@ public class PatientArrayAdapter extends BaseAdapter{
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View repRow = inflater.inflate(R.layout.home_list_view, parent, false);
-        TextView nameView = (TextView) repRow.findViewById(R.id.name_and_room);
+        TextView taskView = (TextView) repRow.findViewById(R.id.task);
         TextView timeView = (TextView) repRow.findViewById(R.id.time);
-        nameView.setText(patients[position]);
-        System.out.println("position is: " + position + " time is: " + times[position]);
-        timeView.setText(times[position]);
+        taskView.setText(tasks.get(position));
+        timeView.setText(times.get(position));
 
         repRow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //Send Toast or Launch Activity here
-                Toast.makeText(context, patients[position], Toast.LENGTH_SHORT).show(); // temp
-                // wanna go to patient's to do list (go to new Activity)
+                Intent toConfirmation = new Intent(context, confirmation_activity.class);
+                toConfirmation.putExtra("index", position);
+                toConfirmation.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(toConfirmation);
             }
         });
         return repRow;
@@ -46,7 +50,7 @@ public class PatientArrayAdapter extends BaseAdapter{
 
     public int getCount() {
         // TODO Auto-generated method stub
-        return this.patients.length;
+        return this.tasks.size();
     }
 
 
