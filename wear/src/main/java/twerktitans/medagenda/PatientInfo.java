@@ -44,11 +44,10 @@ public class PatientInfo {
         if (this.tasks.size() > 0 && this.times.size() > 0) {
             this.tasks.remove(pos);
             this.times.remove(pos);
-            System.out.println("size of task is: " + this.tasks.size());
+            // System.out.println("size of task is: " + this.tasks.size());
         }
         return this.tasks.size() == 0 && this.times.size() == 0;
     }
-
     /** Data will come in this format:
      *  patient_name;task1;task1_time;task2;task2_time;...
      *
@@ -56,13 +55,12 @@ public class PatientInfo {
      *  respective fields. **/
     protected void parseInfo(String data){
         String [] info = data.split(";");
-        System.out.println("length of info is: " + info.length);
+        // System.out.println("length of info is: " + info.length);
         this.name = info[0];
         for (int i = 1; i < info.length; i += 2) {
-            System.out.println(info[i]);
+            // System.out.println(info[i]);
             this.tasks.add(info[i]);
-            System.out.println(info[i + 1]);
-            this.times.add(info[i + 1]);
+            // System.out.println(info[i + 1]);
         }
     }
 }
