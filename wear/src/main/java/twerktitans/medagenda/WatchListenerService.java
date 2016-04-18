@@ -22,7 +22,6 @@ public class WatchListenerService extends WearableListenerService {
     public void onMessageReceived(MessageEvent messageEvent) {
         Log.d("T", "in WatchListenerService, got: " + messageEvent.getPath());
         //use the 'path' field in sendmessage to differentiate use cases
-        //(here, fred vs lexy)
 
         if( messageEvent.getPath().equalsIgnoreCase( FRED_FEED ) ) {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);

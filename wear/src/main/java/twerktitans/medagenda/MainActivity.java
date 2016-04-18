@@ -1,6 +1,7 @@
 package twerktitans.medagenda;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
@@ -22,21 +23,22 @@ public class MainActivity extends Activity {
       public void onLayoutInflated(WatchViewStub stub) {
 
         final ListView patient_lst = (ListView) findViewById(R.id.patients_view);
-        Log.d("DEBUG_TAG", "patient_lst is: " + patient_lst);
-        if (p == null) {
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        if ((p == null && extras != null) || (p != null && extras != null)) {
+          Log.d("WATCH_MA", "in here!");
           p = new PatientInfo();
-          String s = "Eric Paulos;Check blood pressure;3:00PM;Entertain war stories;3:15PM";
+          String s = extras.getString("patient_info");
           p.parseInfo(s);
-          System.out.println("size of tasks is: " + p.getTasks().size());
-          System.out.println("size of times is: " + p.getTimes().size());
-        }
-        TextView patient_name = (TextView)findViewById(R.id.name);
-        patient_name.setText(p.getName());
-        final PatientArrayAdapter adapter = new PatientArrayAdapter(getApplicationContext(),
+          TextView patient_name = (TextView)findViewById(R.id.name);
+          patient_name.setText(p.getName());
+          final PatientArrayAdapter adapter = new PatientArrayAdapter(getApplicationContext(),
                                             p.getName(), p.getTasks(), p.getTimes());
-        Log.d("DEBUG_TAG", "" + adapter);
-        patient_lst.setAdapter(adapter);
-        mTextView = (TextView) stub.findViewById(R.id.text);
+          patient_lst.setAdapter(adapter);
+        } else {
+          Log.d("WATCH_MA", "not in here!");
+        }
       }
     });
   }

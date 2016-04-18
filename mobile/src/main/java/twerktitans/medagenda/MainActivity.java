@@ -1,13 +1,10 @@
 package twerktitans.medagenda;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,13 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
         Intent detailIntent = new Intent(MainActivity.this, PatientDetails.class);
         detailIntent.putExtra("INDEX", position);
         startActivity(detailIntent);
+
+        //Start Wear Service
+        Patient p = patients.get(position);
+        String s = p.getName() + ";" + p.getFirstTask().details + ";" + p.getFirstTaskTime();
+        Log.v("MAIN_ACTIVITY", "s is: " + s);
+        Intent sendToWear = new Intent(MainActivity.this, PhoneToWatchService.class);
+        sendToWear.putExtra("Data", s);
+        sendToWear.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MainActivity.this.startService(sendToWear);
+        Log.v("DEBUG_TAG", "started Wear Activity");
       }
     });
   }
