@@ -60,6 +60,7 @@ public class PatientInfo {
         for (int i = 1; i < info.length; i += 2) {
             // System.out.println(info[i]);
             this.tasks.add(info[i]);
+            this.times.add(info[i+1]);
             // System.out.println(info[i + 1]);
         }
     }
