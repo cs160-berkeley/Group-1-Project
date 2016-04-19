@@ -6,7 +6,7 @@
     android:background="#FFFFFF">
 
         <TextView
-            android:id="@+id/name_and_room"
+            android:id="@+id/task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

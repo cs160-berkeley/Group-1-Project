@@ -2,4 +2,6 @@
     <string name="app_name">MedAgenda</string>
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
+    <string name="title_activity_confirmation_activity">confirmation_activity</string>
+    <string name="title_activity_all_tasks_done">all_tasks_done</string>
 </resources>

@@ -1,16 +1,18 @@
 package twerktitans.medagenda;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
   private TextView mTextView;
-
+  static PatientInfo p;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -22,14 +24,24 @@ public class MainActivity extends Activity {
       public void onLayoutInflated(WatchViewStub stub) {
 
         final ListView patient_lst = (ListView) findViewById(R.id.patients_view);
-        Log.d("DEBUG_TAG", "patient_lst is: " + patient_lst);
-        String [] patient_names = {"Eric Paulos, Rm.160", "Derrick Hu, Rm.161", "John Doe, Rm.162"};
-        String [] patient_times = {"10:43AM", "2:00PM", "3:21PM"};
-        final PatientArrayAdapter adapter = new PatientArrayAdapter(getApplicationContext(), patient_names, patient_times);
-        Log.d("DEBUG_TAG", "" + adapter);
-        patient_lst.setAdapter(adapter);
-        mTextView = (TextView) stub.findViewById(R.id.text);
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        mTextView = (TextView) findViewById(R.id.intro_text);
 
+        if ((p == null && extras != null) || (p != null && extras != null)) {
+          Log.d("WATCH_MA", "in here!");
+          mTextView.setVisibility(View.GONE);
+          p = new PatientInfo();
+          String s = extras.getString("patient_info");
+          p.parseInfo(s);
+          TextView patient_name = (TextView)findViewById(R.id.name);
+          patient_name.setText(p.getName());
+          final PatientArrayAdapter adapter = new PatientArrayAdapter(getApplicationContext(),
+                                            p.getName(), p.getTasks(), p.getTimes());
+          patient_lst.setAdapter(adapter);
+        } else {
+          Log.d("WATCH_MA", "not in here!");
+        }
       }
     });
   }
