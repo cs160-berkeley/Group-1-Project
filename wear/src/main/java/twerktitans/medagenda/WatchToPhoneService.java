@@ -52,7 +52,8 @@ public class WatchToPhoneService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         Bundle extras = intent.getExtras();
-        final int index = extras.getInt("position");
+        final String patient_position = extras.getString("patient_position");
+        final int index = extras.getInt("task_status_pos");
 
         new Thread(new Runnable() {
             @Override
@@ -60,7 +61,7 @@ public class WatchToPhoneService extends Service {
                 //first, connect to the apiclient
                 mWatchApiClient.connect();
                 //now that you're connected, send a massage with the cat name
-                sendMessage("/fromWatch", "" + index);
+                sendMessage("/fromWatch", patient_position + ";" + index);
             }
         }).start();
         return START_STICKY;

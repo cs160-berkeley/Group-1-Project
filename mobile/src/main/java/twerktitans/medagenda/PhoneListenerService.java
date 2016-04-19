@@ -1,6 +1,7 @@
 package twerktitans.medagenda;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.google.android.gms.wearable.MessageEvent;
@@ -30,10 +31,13 @@ public class PhoneListenerService extends WearableListenerService {
             // Make a toast with the String
             Context context = getApplicationContext();
             Log.d("PHONELISTENERSERVICE", "value is: " + value);
-            // so you may notice this crashes the phone because it's
-            //''sending message to a Handler on a dead thread''... that's okay. but don't do this.
-            // replace sending a toast with, like, starting a new activity or something.
-            // who said skeleton code is untouchable? #breakCSconceptions
+            Intent intent = new Intent(this, MainActivity.class );
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            //you need to add this flag since you're starting a new activity from a service
+            intent.putExtra("tasks", value);
+            Log.d("T", "about to start watch MainActivity");
+            startActivity(intent);
+
 
         } else {
             super.onMessageReceived( messageEvent );

@@ -47,7 +47,8 @@ public class confirmation_activity extends Activity {
                 }
 
                 Intent sendToWear = new Intent(confirmation_activity.this, WatchToPhoneService.class);
-                sendToWear.putExtra("position", index);
+                sendToWear.putExtra("patient_position", MainActivity.p.getPatientPos());
+                sendToWear.putExtra("task_status_pos", index);
                 sendToWear.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startService(sendToWear);
             }

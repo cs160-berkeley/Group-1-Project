@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class PatientInfo {
 
     private String name;
+    private String patient_pos;
     private ArrayList<String> tasks;
     private ArrayList<String> times;
 
@@ -21,6 +22,7 @@ public class PatientInfo {
 
     public PatientInfo(){
         this.name = "";
+        this.patient_pos = "";
         this.tasks = new ArrayList<String>();
         this.times = new ArrayList<String>();
     }
@@ -57,12 +59,17 @@ public class PatientInfo {
         String [] info = data.split(";");
         // System.out.println("length of info is: " + info.length);
         this.name = info[0];
-        for (int i = 1; i < info.length; i += 2) {
+        this.patient_pos = info[1];
+        for (int i = 2; i < info.length; i += 2) {
             // System.out.println(info[i]);
             this.tasks.add(info[i]);
             this.times.add(info[i+1]);
             // System.out.println(info[i + 1]);
         }
+    }
+
+    protected String getPatientPos(){
+        return this.patient_pos;
     }
 }
 

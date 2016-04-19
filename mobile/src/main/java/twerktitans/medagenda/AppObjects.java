@@ -3,8 +3,6 @@ package twerktitans.medagenda;
 import android.graphics.Color;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -34,6 +32,14 @@ class Patient implements Comparable<Patient>{
     }
 
     return Task.getEmptyTask();
+  }
+
+  int getTaskSize(){
+    return tasks.size();
+  }
+
+  int getStatusSize(){
+    return statuses.size();
   }
 
   String getFirstTaskTime() {

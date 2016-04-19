@@ -24,39 +24,55 @@ import java.util.LinkedList;
 public class MainActivity extends AppCompatActivity {
 
   static LinkedList<Patient> patients;
+  static boolean firstTime = true;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    patients = new LinkedList<>();
-    Patient p = new Patient();
-    Task t = new Task();
-    p.firstName = "Eric";
-    p.lastName = "Paulos";
-    p.room = "Jacobs 310";
-    t.details = "Give coffee";
-    t.time = Calendar.getInstance();
-    t.color = Color.parseColor("#00FF00");
-    p.tasks.add(t);
-    patients.add(p);
+    if (firstTime) {
+      patients = new LinkedList<>();
+      Patient p = new Patient();
+      Task t = new Task();
+      p.firstName = "Eric";
+      p.lastName = "Paulos";
+      p.room = "Jacobs 310";
+      t.details = "Give coffee";
+      t.time = Calendar.getInstance();
+      t.color = Color.parseColor("#00FF00");
+      p.tasks.add(t);
+      patients.add(p);
 
-    p = new Patient();
-    t = new Task();
-    p.firstName = "Stephen";
-    p.lastName = "Colbert";
-    p.room = "Rm. 123";
-    t.details = "Applaud him";
-    t.time = Calendar.getInstance();
-    t.time.add(Calendar.HOUR, 1);
-    t.color = Color.parseColor("#0000FF");
-    p.tasks.add(t);
-    patients.add(p);
+      p = new Patient();
+      t = new Task();
+      p.firstName = "Stephen";
+      p.lastName = "Colbert";
+      p.room = "Rm. 123";
+      t.details = "Applaud him";
+      t.time = Calendar.getInstance();
+      t.time.add(Calendar.HOUR, 1);
+      t.color = Color.parseColor("#0000FF");
+      p.tasks.add(t);
+      patients.add(p);
 
-    Log.d("t", patients.get(0).toString());
-    Log.d("t", patients.get(1).toString());
-    Collections.sort(patients);
+      Log.d("t", patients.get(0).toString());
+      Log.d("t", patients.get(1).toString());
+      Collections.sort(patients);
+      firstTime = false;
+    }
 
+    Intent intent = getIntent();
+    Bundle extras = intent.getExtras();
+    if (extras != null) {
+      if (extras.containsKey("tasks")) {
+        String [] indices = extras.getString("tasks").split(";");
+        int indx = Integer.parseInt(indices[0]);
+        int pos = Integer.parseInt(indices[1]);
+        Log.d("mobile-MA", "indx is: " + indx);
+        Log.d("mobile-MA", "pos is: " + pos);
+        patients.get(indx).deleteTask(pos);
+      }
+    }
     refreshList();
   }
 
@@ -74,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Start Wear Service
         Patient p = patients.get(position);
-        String s = p.getName() + ";" + p.getFirstTask().details + ";" + p.getFirstTaskTime();
+        String s = p.getName() + ";" + position + ";" + p.getFirstTask().details + ";" + p.getFirstTaskTime();
         Log.v("MAIN_ACTIVITY", "s is: " + s);
         Intent sendToWear = new Intent(MainActivity.this, PhoneToWatchService.class);
         sendToWear.putExtra("Data", s);
