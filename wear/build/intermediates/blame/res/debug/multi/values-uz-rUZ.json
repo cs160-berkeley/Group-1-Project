@@ -7,17 +7,17 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 105,
-                    "endColumn": 296,
-                    "endOffset": 397
+                    "endColumn": 210,
+                    "endOffset": 311
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 24,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 3548,
-                        "endColumn": 300,
-                        "endOffset": 3844
+                        "startOffset": 486,
+                        "endColumn": 214,
+                        "endOffset": 696
                     }
                 }
             },
@@ -25,18 +25,18 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 402,
-                    "endColumn": 131,
-                    "endOffset": 529
+                    "startOffset": 316,
+                    "endColumn": 179,
+                    "endOffset": 491
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1326,
-                        "endColumn": 131,
-                        "endOffset": 1453
+                        "startOffset": 2649,
+                        "endColumn": 183,
+                        "endOffset": 2828
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 534,
-                    "endColumn": 181,
-                    "endOffset": 711
+                    "startOffset": 496,
+                    "endColumn": 123,
+                    "endOffset": 615
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1140,
-                        "endColumn": 185,
-                        "endOffset": 1321
+                        "startOffset": 2331,
+                        "endColumn": 123,
+                        "endOffset": 2450
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 716,
-                    "endColumn": 130,
-                    "endOffset": 842
+                    "startOffset": 620,
+                    "endColumn": 296,
+                    "endOffset": 912
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 30,
                         "startColumn": 4,
-                        "startOffset": 1009,
-                        "endColumn": 130,
-                        "endOffset": 1135
+                        "startOffset": 4574,
+                        "endColumn": 300,
+                        "endOffset": 4870
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 847,
-                    "endColumn": 135,
-                    "endOffset": 978
+                    "startOffset": 917,
+                    "endColumn": 131,
+                    "endOffset": 1044
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 873,
-                        "endColumn": 135,
-                        "endOffset": 1004
+                        "startOffset": 2065,
+                        "endColumn": 131,
+                        "endOffset": 2192
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 983,
-                    "endColumn": 210,
-                    "endOffset": 1189
+                    "startOffset": 1049,
+                    "endColumn": 181,
+                    "endOffset": 1226
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 441,
-                        "endColumn": 214,
-                        "endOffset": 651
+                        "startOffset": 1879,
+                        "endColumn": 185,
+                        "endOffset": 2060
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 1194,
-                    "endColumn": 212,
-                    "endOffset": 1402
+                    "startOffset": 1231,
+                    "endColumn": 129,
+                    "endOffset": 1356
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 656,
-                        "endColumn": 216,
-                        "endOffset": 868
+                        "startOffset": 1749,
+                        "endColumn": 129,
+                        "endOffset": 1874
                     }
                 }
             },
@@ -139,18 +139,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 1407,
-                    "endColumn": 134,
-                    "endOffset": 1537
+                    "startOffset": 1361,
+                    "endColumn": 171,
+                    "endOffset": 1528
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 306,
-                        "endColumn": 134,
-                        "endOffset": 436
+                        "startOffset": 867,
+                        "endColumn": 175,
+                        "endOffset": 1038
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 1542,
-                    "endColumn": 164,
-                    "endOffset": 1702
+                    "startOffset": 1533,
+                    "endColumn": 138,
+                    "endOffset": 1667
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 2747,
-                        "endColumn": 164,
-                        "endOffset": 2907
+                        "startOffset": 1610,
+                        "endColumn": 138,
+                        "endOffset": 1744
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 1707,
-                    "endColumn": 123,
-                    "endOffset": 1826
+                    "startOffset": 1672,
+                    "endColumn": 210,
+                    "endOffset": 1878
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 2623,
-                        "endColumn": 123,
-                        "endOffset": 2742
+                        "startOffset": 1179,
+                        "endColumn": 214,
+                        "endOffset": 1389
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1831,
-                    "endColumn": 169,
-                    "endOffset": 1996
+                    "startOffset": 1883,
+                    "endColumn": 211,
+                    "endOffset": 2090
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 2453,
-                        "endColumn": 169,
-                        "endOffset": 2618
+                        "startOffset": 1394,
+                        "endColumn": 215,
+                        "endOffset": 1605
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 2001,
-                    "endColumn": 119,
-                    "endOffset": 2116
+                    "startOffset": 2095,
+                    "endColumn": 135,
+                    "endOffset": 2226
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 2333,
-                        "endColumn": 119,
-                        "endOffset": 2448
+                        "startOffset": 1043,
+                        "endColumn": 135,
+                        "endOffset": 1174
                     }
                 }
             },
@@ -234,12 +234,126 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 2121,
-                    "endColumn": 135,
-                    "endOffset": 2252
+                    "startOffset": 2231,
+                    "endColumn": 178,
+                    "endOffset": 2405
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 3594,
+                        "endColumn": 178,
+                        "endOffset": 3768
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 2410,
+                    "endColumn": 126,
+                    "endOffset": 2532
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 3467,
+                        "endColumn": 126,
+                        "endOffset": 3589
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 2537,
+                    "endColumn": 165,
+                    "endOffset": 2698
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 701,
+                        "endColumn": 165,
+                        "endOffset": 862
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 2703,
+                    "endColumn": 159,
+                    "endOffset": 2858
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 3307,
+                        "endColumn": 159,
+                        "endOffset": 3462
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 2863,
+                    "endColumn": 119,
+                    "endOffset": 2978
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 3187,
+                        "endColumn": 119,
+                        "endOffset": 3302
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 2983,
+                    "endColumn": 179,
+                    "endOffset": 3158
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 306,
+                        "endColumn": 179,
+                        "endOffset": 481
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 3163,
+                    "endColumn": 135,
+                    "endOffset": 3294
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -251,134 +365,20 @@
             },
             {
                 "to": {
-                    "startLine": 15,
-                    "startColumn": 4,
-                    "startOffset": 2257,
-                    "endColumn": 172,
-                    "endOffset": 2425
-                },
-                "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
-                    "position": {
-                        "startLine": 28,
-                        "startColumn": 4,
-                        "startOffset": 4282,
-                        "endColumn": 172,
-                        "endOffset": 4450
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 16,
-                    "startColumn": 4,
-                    "startOffset": 2430,
-                    "endColumn": 128,
-                    "endOffset": 2554
-                },
-                "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
-                    "position": {
-                        "startLine": 27,
-                        "startColumn": 4,
-                        "startOffset": 4153,
-                        "endColumn": 128,
-                        "endOffset": 4277
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 17,
-                    "startColumn": 4,
-                    "startOffset": 2559,
-                    "endColumn": 174,
-                    "endOffset": 2729
-                },
-                "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
-                    "position": {
-                        "startLine": 26,
-                        "startColumn": 4,
-                        "startOffset": 3978,
-                        "endColumn": 174,
-                        "endOffset": 4148
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 18,
-                    "startColumn": 4,
-                    "startOffset": 2734,
-                    "endColumn": 128,
-                    "endOffset": 2858
-                },
-                "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
-                    "position": {
-                        "startLine": 25,
-                        "startColumn": 4,
-                        "startOffset": 3849,
-                        "endColumn": 128,
-                        "endOffset": 3973
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 19,
-                    "startColumn": 4,
-                    "startOffset": 2863,
-                    "endColumn": 280,
-                    "endOffset": 3139
-                },
-                "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values-uz-rUZ/common_strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 170,
-                        "endColumn": 284,
-                        "endOffset": 450
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 3144,
-                    "endColumn": 300,
-                    "endOffset": 3440
-                },
-                "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 3038,
-                        "endColumn": 304,
-                        "endOffset": 3338
-                    }
-                }
-            },
-            {
-                "to": {
                     "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 3445,
-                    "endColumn": 125,
-                    "endOffset": 3566
+                    "startOffset": 3299,
+                    "endColumn": 176,
+                    "endOffset": 3471
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 32,
                         "startColumn": 4,
-                        "startOffset": 2912,
-                        "endColumn": 125,
-                        "endOffset": 3033
+                        "startOffset": 5004,
+                        "endColumn": 176,
+                        "endOffset": 5176
                     }
                 }
             },
@@ -386,18 +386,18 @@
                 "to": {
                     "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 3571,
-                    "endColumn": 109,
-                    "endOffset": 3676
+                    "startOffset": 3476,
+                    "endColumn": 128,
+                    "endOffset": 3600
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 31,
                         "startColumn": 4,
-                        "startOffset": 3343,
-                        "endColumn": 109,
-                        "endOffset": 3448
+                        "startOffset": 4875,
+                        "endColumn": 128,
+                        "endOffset": 4999
                     }
                 }
             },
@@ -405,18 +405,18 @@
                 "to": {
                     "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 3681,
-                    "endColumn": 189,
-                    "endOffset": 3866
+                    "startOffset": 3605,
+                    "endColumn": 163,
+                    "endOffset": 3764
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 25,
                         "startColumn": 4,
-                        "startOffset": 1592,
-                        "endColumn": 193,
-                        "endOffset": 1781
+                        "startOffset": 3773,
+                        "endColumn": 163,
+                        "endOffset": 3932
                     }
                 }
             },
@@ -424,18 +424,18 @@
                 "to": {
                     "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 3871,
-                    "endColumn": 133,
-                    "endOffset": 4000
+                    "startOffset": 3769,
+                    "endColumn": 300,
+                    "endOffset": 4065
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 27,
                         "startColumn": 4,
-                        "startOffset": 1458,
-                        "endColumn": 133,
-                        "endOffset": 1587
+                        "startOffset": 4064,
+                        "endColumn": 304,
+                        "endOffset": 4364
                     }
                 }
             },
@@ -443,18 +443,18 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 4005,
-                    "endColumn": 212,
-                    "endOffset": 4213
+                    "startOffset": 4070,
+                    "endColumn": 126,
+                    "endOffset": 4192
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 26,
                         "startColumn": 4,
-                        "startOffset": 2116,
-                        "endColumn": 216,
-                        "endOffset": 2328
+                        "startOffset": 3937,
+                        "endColumn": 126,
+                        "endOffset": 4059
                     }
                 }
             },
@@ -462,18 +462,18 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 4218,
-                    "endColumn": 137,
-                    "endOffset": 4351
+                    "startOffset": 4197,
+                    "endColumn": 109,
+                    "endOffset": 4302
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 1978,
-                        "endColumn": 137,
-                        "endOffset": 2111
+                        "startOffset": 4369,
+                        "endColumn": 109,
+                        "endOffset": 4474
                     }
                 }
             },
@@ -481,18 +481,18 @@
                 "to": {
                     "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 4356,
-                    "endColumn": 191,
-                    "endOffset": 4543
+                    "startOffset": 4307,
+                    "endColumn": 189,
+                    "endOffset": 4492
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1786,
-                        "endColumn": 191,
-                        "endOffset": 1973
+                        "startOffset": 2455,
+                        "endColumn": 193,
+                        "endOffset": 2644
                     }
                 }
             },
@@ -500,18 +500,18 @@
                 "to": {
                     "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 4548,
-                    "endColumn": 94,
-                    "endOffset": 4638
+                    "startOffset": 4497,
+                    "endColumn": 133,
+                    "endOffset": 4626
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 3453,
-                        "endColumn": 94,
-                        "endOffset": 3543
+                        "startOffset": 2197,
+                        "endColumn": 133,
+                        "endOffset": 2326
                     }
                 }
             },
@@ -519,18 +519,18 @@
                 "to": {
                     "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 4643,
-                    "endColumn": 90,
-                    "endOffset": 4729
+                    "startOffset": 4631,
+                    "endColumn": 212,
+                    "endOffset": 4839
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 29,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 4455,
-                        "endColumn": 90,
-                        "endOffset": 4541
+                        "startOffset": 2970,
+                        "endColumn": 216,
+                        "endOffset": 3182
                     }
                 }
             },
@@ -538,18 +538,37 @@
                 "to": {
                     "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 4734,
-                    "endColumn": 109,
-                    "endOffset": 4839
+                    "startOffset": 4844,
+                    "endColumn": 136,
+                    "endOffset": 4976
                 },
                 "from": {
-                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-uz-rUZ/base_strings.xml",
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
                     "position": {
-                        "startLine": 30,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 4546,
-                        "endColumn": 109,
-                        "endOffset": 4651
+                        "startOffset": 2833,
+                        "endColumn": 136,
+                        "endOffset": 2965
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 4981,
+                    "endColumn": 94,
+                    "endOffset": 5071
+                },
+                "from": {
+                    "file": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values-uz-rUZ/common_strings.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 4479,
+                        "endColumn": 94,
+                        "endOffset": 4569
                     }
                 }
             }

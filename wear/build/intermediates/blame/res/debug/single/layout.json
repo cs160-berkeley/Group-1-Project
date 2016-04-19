@@ -46,5 +46,9 @@
     {
         "merged": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/res/merged/debug/layout/activity_main.xml",
         "source": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/res/merged/debug/layout/confirmation_screen_main.xml",
+        "source": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/src/main/res/layout/confirmation_screen_main.xml"
     }
 ]

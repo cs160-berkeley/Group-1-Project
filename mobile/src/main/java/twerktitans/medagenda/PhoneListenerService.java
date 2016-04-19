@@ -23,13 +23,13 @@ public class PhoneListenerService extends WearableListenerService {
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         Log.d("T", "in PhoneListenerService, got: " + messageEvent.getPath());
-        if( messageEvent.getPath().length() > 0 ) {
+        if( messageEvent.getPath().equals("/fromWatch") ) {
 
             // Value contains the String we sent over in WatchToPhoneService, "good job"
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
             // Make a toast with the String
             Context context = getApplicationContext();
-
+            Log.d("PHONELISTENERSERVICE", "value is: " + value);
             // so you may notice this crashes the phone because it's
             //''sending message to a Handler on a dead thread''... that's okay. but don't do this.
             // replace sending a toast with, like, starting a new activity or something.

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,9 +26,11 @@ public class MainActivity extends Activity {
         final ListView patient_lst = (ListView) findViewById(R.id.patients_view);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
+        mTextView = (TextView) findViewById(R.id.intro_text);
 
         if ((p == null && extras != null) || (p != null && extras != null)) {
           Log.d("WATCH_MA", "in here!");
+          mTextView.setVisibility(View.GONE);
           p = new PatientInfo();
           String s = extras.getString("patient_info");
           p.parseInfo(s);

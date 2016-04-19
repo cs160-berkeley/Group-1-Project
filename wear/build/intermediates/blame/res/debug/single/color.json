@@ -12,8 +12,16 @@
         "source": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/color/common_plus_signin_btn_text_light.xml"
     },
     {
+        "merged": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/res/merged/debug/color/common_signin_btn_text_dark.xml",
+        "source": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/color/common_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
         "source": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/res/merged/debug/color/common_signin_btn_text_light.xml",
+        "source": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/color/common_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/jefftan/Desktop/School/CS160/FinalProject/Group-1-Project/wear/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",

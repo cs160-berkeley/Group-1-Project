@@ -28,8 +28,8 @@ public final class R {
 		public static final int circle_padding = 0x7f010008;
 		public static final int circle_radius = 0x7f010004;
 		public static final int circle_radius_pressed = 0x7f010005;
-		public static final int circular_layout_gravity = 0x7f01002f;
-		public static final int circular_text_size = 0x7f010030;
+		public static final int circular_layout_gravity = 0x7f01002c;
+		public static final int circular_text_size = 0x7f01002d;
 		public static final int color_sequence = 0x7f010021;
 		public static final int dotColor = 0x7f010014;
 		public static final int dotColorSelected = 0x7f010015;
@@ -49,19 +49,19 @@ public final class R {
 		public static final int image_horizontal_offcenter_percentage = 0x7f01000b;
 		public static final int image_tint = 0x7f01000c;
 		public static final int layout_box = 0x7f010002;
-		public static final int layout_gravityRound = 0x7f010027;
-		public static final int layout_heightRound = 0x7f010029;
-		public static final int layout_marginBottomRound = 0x7f01002e;
-		public static final int layout_marginLeftRound = 0x7f01002b;
-		public static final int layout_marginRightRound = 0x7f01002d;
-		public static final int layout_marginRound = 0x7f01002a;
-		public static final int layout_marginTopRound = 0x7f01002c;
-		public static final int layout_widthRound = 0x7f010028;
+		public static final int layout_gravityRound = 0x7f010024;
+		public static final int layout_heightRound = 0x7f010026;
+		public static final int layout_marginBottomRound = 0x7f01002b;
+		public static final int layout_marginLeftRound = 0x7f010028;
+		public static final int layout_marginRightRound = 0x7f01002a;
+		public static final int layout_marginRound = 0x7f010027;
+		public static final int layout_marginTopRound = 0x7f010029;
+		public static final int layout_widthRound = 0x7f010025;
 		public static final int maxTextSize = 0x7f010001;
 		public static final int minTextSize = 0x7f010000;
 		public static final int pressedButtonTranslationZ = 0x7f01000f;
-		public static final int rectLayout = 0x7f010025;
-		public static final int roundLayout = 0x7f010026;
+		public static final int rectLayout = 0x7f010022;
+		public static final int roundLayout = 0x7f010023;
 		public static final int shadow_width = 0x7f010009;
 		public static final int update_interval = 0x7f010010;
 	}
@@ -72,29 +72,29 @@ public final class R {
 		public static final int black_86p = 0x7f0b0003;
 		public static final int blue = 0x7f0b0004;
 		public static final int card_default_background = 0x7f0b0005;
-		public static final int circular_button = 0x7f0b002d;
+		public static final int circular_button = 0x7f0b0026;
 		public static final int circular_button_disabled = 0x7f0b0006;
 		public static final int circular_button_normal = 0x7f0b0007;
 		public static final int circular_button_pressed = 0x7f0b0008;
-		public static final int dark_blue = 0x7f0b001a;
-		public static final int dark_grey = 0x7f0b001b;
-		public static final int dark_red = 0x7f0b001c;
-		public static final int dialog_background = 0x7f0b001d;
-		public static final int dialog_shade_background = 0x7f0b001e;
-		public static final int disabled_text_light = 0x7f0b001f;
-		public static final int dismiss_close = 0x7f0b0020;
-		public static final int dismiss_close_pressed = 0x7f0b0021;
-		public static final int dismiss_overlay_bg = 0x7f0b0022;
-		public static final int green = 0x7f0b0023;
-		public static final int grey = 0x7f0b0024;
-		public static final int light_grey = 0x7f0b0025;
-		public static final int orange = 0x7f0b0026;
-		public static final int primary_text_dark = 0x7f0b0027;
-		public static final int primary_text_light = 0x7f0b0028;
-		public static final int red = 0x7f0b0029;
-		public static final int secondary_text_light = 0x7f0b002a;
-		public static final int semitransparent_grey = 0x7f0b002b;
-		public static final int white = 0x7f0b002c;
+		public static final int dark_blue = 0x7f0b0013;
+		public static final int dark_grey = 0x7f0b0014;
+		public static final int dark_red = 0x7f0b0015;
+		public static final int dialog_background = 0x7f0b0016;
+		public static final int dialog_shade_background = 0x7f0b0017;
+		public static final int disabled_text_light = 0x7f0b0018;
+		public static final int dismiss_close = 0x7f0b0019;
+		public static final int dismiss_close_pressed = 0x7f0b001a;
+		public static final int dismiss_overlay_bg = 0x7f0b001b;
+		public static final int green = 0x7f0b001c;
+		public static final int grey = 0x7f0b001d;
+		public static final int light_grey = 0x7f0b001e;
+		public static final int orange = 0x7f0b001f;
+		public static final int primary_text_dark = 0x7f0b0020;
+		public static final int primary_text_light = 0x7f0b0021;
+		public static final int red = 0x7f0b0022;
+		public static final int secondary_text_light = 0x7f0b0023;
+		public static final int semitransparent_grey = 0x7f0b0024;
+		public static final int white = 0x7f0b0025;
 	}
 	public static final class dimen {
 		public static final int card_content_padding_rect_top = 0x7f0c0000;
@@ -119,38 +119,38 @@ public final class R {
 		public static final int card_frame = 0x7f020003;
 		public static final int card_frame_pressed = 0x7f020004;
 		public static final int close_button = 0x7f020006;
-		public static final int generic_confirmation = 0x7f020031;
-		public static final int generic_confirmation_animation = 0x7f020032;
-		public static final int ic_full_cancel = 0x7f020033;
-		public static final int ic_full_sad = 0x7f020034;
-		public static final int open_on_phone = 0x7f020035;
-		public static final int open_on_phone_animation = 0x7f020036;
+		public static final int generic_confirmation = 0x7f020021;
+		public static final int generic_confirmation_animation = 0x7f020022;
+		public static final int ic_full_cancel = 0x7f020023;
+		public static final int ic_full_sad = 0x7f020024;
+		public static final int open_on_phone = 0x7f020025;
+		public static final int open_on_phone_animation = 0x7f020026;
 	}
 	public static final class id {
-		public static final int alertTitle = 0x7f0e001f;
+		public static final int alertTitle = 0x7f0e0019;
 		public static final int all = 0x7f0e0000;
-		public static final int animatedWrapperContainer = 0x7f0e001e;
+		public static final int animatedWrapperContainer = 0x7f0e0018;
 		public static final int bottom = 0x7f0e0001;
-		public static final int buttonPanel = 0x7f0e0020;
+		public static final int buttonPanel = 0x7f0e001a;
 		public static final int center = 0x7f0e0005;
-		public static final int center_horizontal = 0x7f0e0010;
-		public static final int center_vertical = 0x7f0e0011;
-		public static final int clip_horizontal = 0x7f0e0012;
-		public static final int clip_vertical = 0x7f0e0013;
-		public static final int dismiss_overlay_button = 0x7f0e0022;
-		public static final int dismiss_overlay_explain = 0x7f0e0021;
-		public static final int end = 0x7f0e0014;
-		public static final int fill = 0x7f0e0015;
-		public static final int fill_horizontal = 0x7f0e0016;
-		public static final int fill_vertical = 0x7f0e0017;
+		public static final int center_horizontal = 0x7f0e000a;
+		public static final int center_vertical = 0x7f0e000b;
+		public static final int clip_horizontal = 0x7f0e000c;
+		public static final int clip_vertical = 0x7f0e000d;
+		public static final int dismiss_overlay_button = 0x7f0e001c;
+		public static final int dismiss_overlay_explain = 0x7f0e001b;
+		public static final int end = 0x7f0e000e;
+		public static final int fill = 0x7f0e000f;
+		public static final int fill_horizontal = 0x7f0e0010;
+		public static final int fill_vertical = 0x7f0e0011;
 		public static final int fit = 0x7f0e0006;
 		public static final int left = 0x7f0e0002;
-		public static final int message = 0x7f0e0023;
-		public static final int parentPanel = 0x7f0e001d;
+		public static final int message = 0x7f0e001d;
+		public static final int parentPanel = 0x7f0e0017;
 		public static final int right = 0x7f0e0003;
-		public static final int start = 0x7f0e0018;
-		public static final int text = 0x7f0e0026;
-		public static final int title = 0x7f0e0029;
+		public static final int start = 0x7f0e0012;
+		public static final int text = 0x7f0e0020;
+		public static final int title = 0x7f0e0024;
 		public static final int top = 0x7f0e0004;
 	}
 	public static final class interpolator {
@@ -163,12 +163,12 @@ public final class R {
 	}
 	public static final class layout {
 		public static final int alert_dialog_wearable = 0x7f040003;
-		public static final int dismiss_overlay = 0x7f040004;
-		public static final int error_layout = 0x7f040005;
-		public static final int watch_card_content = 0x7f04000d;
+		public static final int dismiss_overlay = 0x7f040005;
+		public static final int error_layout = 0x7f040006;
+		public static final int watch_card_content = 0x7f04000e;
 	}
 	public static final class string {
-		public static final int dismiss_overlay_button_label = 0x7f08001d;
+		public static final int dismiss_overlay_button_label = 0x7f08001e;
 	}
 	public static final class style {
 		public static final int CardText = 0x7f090000;
@@ -269,10 +269,10 @@ public final class R {
 		public static final int DotsPageIndicator_dotSpacing = 0;
 		public static final int[] ProgressSpinner = { 0x7f010021 };
 		public static final int ProgressSpinner_color_sequence = 0;
-		public static final int[] WatchViewStub = { 0x7f010025, 0x7f010026 };
+		public static final int[] WatchViewStub = { 0x7f010022, 0x7f010023 };
 		public static final int WatchViewStub_rectLayout = 0;
 		public static final int WatchViewStub_roundLayout = 1;
-		public static final int[] WearableFrameLayout = { 0x01010109, 0x0101010a, 0x01010200, 0x0101046d, 0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e };
+		public static final int[] WearableFrameLayout = { 0x01010109, 0x0101010a, 0x01010200, 0x0101046d, 0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b };
 		public static final int WearableFrameLayout_android_foreground = 0;
 		public static final int WearableFrameLayout_android_foregroundGravity = 2;
 		public static final int WearableFrameLayout_android_foregroundTint = 3;
@@ -285,7 +285,7 @@ public final class R {
 		public static final int WearableFrameLayout_layout_marginRound = 7;
 		public static final int WearableFrameLayout_layout_marginTopRound = 9;
 		public static final int WearableFrameLayout_layout_widthRound = 5;
-		public static final int[] WearableHeaderTextView = { 0x7f01002f, 0x7f010030 };
+		public static final int[] WearableHeaderTextView = { 0x7f01002c, 0x7f01002d };
 		public static final int WearableHeaderTextView_circular_layout_gravity = 0;
 		public static final int WearableHeaderTextView_circular_text_size = 1;
 	}

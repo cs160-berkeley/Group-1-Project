@@ -45,6 +45,11 @@ public class confirmation_activity extends Activity {
                     back_to_list.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     getApplicationContext().startActivity(back_to_list);
                 }
+
+                Intent sendToWear = new Intent(confirmation_activity.this, WatchToPhoneService.class);
+                sendToWear.putExtra("position", index);
+                sendToWear.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startService(sendToWear);
             }
         });
     }
