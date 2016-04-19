@@ -31,7 +31,7 @@ public class PhoneListenerService extends WearableListenerService {
             // Make a toast with the String
             Context context = getApplicationContext();
             Log.d("PHONELISTENERSERVICE", "value is: " + value);
-            Intent intent = new Intent(this, MainActivity.class );
+            Intent intent = new Intent(this, PatientDetails.class );
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //you need to add this flag since you're starting a new activity from a service
             intent.putExtra("tasks", value);

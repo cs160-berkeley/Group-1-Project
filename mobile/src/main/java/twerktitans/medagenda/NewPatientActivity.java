@@ -79,7 +79,7 @@ public class NewPatientActivity extends AppCompatActivity {
           p.lastName = lastName.getText().toString();
           p.room = room.getText().toString();
 
-          MainActivity.patients.add(p);
+          DisplayPatients.patients.add(p);
           finish();
         }
       }

@@ -11,4 +11,5 @@
         <item> green </item>
         <item> purple </item>
     </string-array>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

@@ -70,7 +70,7 @@ public class NewTaskActivity extends AppCompatActivity {
 
     final int index = getIntent().getIntExtra("INDEX", 0);
 
-    Patient p = MainActivity.patients.get(index);
+    Patient p = DisplayPatients.patients.get(index);
     patientName.setText(p.getName());
     //patientDoB.setText(p.dateOfBirth);
     patientRoom.setText(p.room);
@@ -151,7 +151,7 @@ public class NewTaskActivity extends AppCompatActivity {
           newTask.minBtwRepeats = 0;
           getRepeats();
 
-          MainActivity.patients.get(index).tasks.add(newTask);
+          DisplayPatients.patients.get(index).tasks.add(newTask);
           finish();
         }
       }

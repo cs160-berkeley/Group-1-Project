@@ -1,8 +1,7 @@
 package twerktitans.medagenda;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -30,7 +29,7 @@ public class NewStatusActivity extends AppCompatActivity {
 
   private void setupStaticFields() {
     final int index = getIntent().getIntExtra("INDEX", 0);
-    Patient p = MainActivity.patients.get(index);
+    Patient p = DisplayPatients.patients.get(index);
     TextView name = (TextView) findViewById(R.id.textNewStatusPatient);
     TextView room = (TextView) findViewById(R.id.textNewStatusRoom);
     name.setText(p.getName());
@@ -70,7 +69,7 @@ public class NewStatusActivity extends AppCompatActivity {
             status.time = now;
           }
           status.details = detailsEdit.getText().toString();
-          MainActivity.patients.get(index).statuses.add(status);
+          DisplayPatients.patients.get(index).statuses.add(status);
           finish();
         }
       }

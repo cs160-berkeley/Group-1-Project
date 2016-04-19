@@ -20,11 +20,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 /**
@@ -46,7 +42,18 @@ public class PatientDetails extends AppCompatActivity {
     Intent myIntent = getIntent();
     final int index = myIntent.getIntExtra("INDEX", 0);
 
-    patient = MainActivity.patients.get(index);
+    patient = DisplayPatients.patients.get(index);
+    Intent intent = getIntent();
+    Bundle extras = intent.getExtras();
+    if (extras != null) {
+      if (extras.containsKey("tasks")) {
+        String [] indices = extras.getString("tasks").split(";");
+        int indx = Integer.parseInt(indices[0]);
+        int pos = Integer.parseInt(indices[1]);
+        DisplayPatients.patients.get(indx).deleteTask(pos);
+      }
+    }
+
     Collections.sort(patient.tasks);
 
     TextView name = (TextView) findViewById(R.id.textPatientDetailName);
@@ -171,7 +178,7 @@ public class PatientDetails extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
               // continue with delete
               Log.d("T", "This patient would have been deleted!");
-              MainActivity.patients.remove(patient);
+              DisplayPatients.patients.remove(patient);
               thisContext.finish();
             }
           })
