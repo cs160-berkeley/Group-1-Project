@@ -70,6 +70,14 @@ class Patient implements Comparable<Patient>{
       return 1;
     }
   }
+
+  public void deleteTask(int i) {
+    tasks.remove(i);
+  }
+
+  public void deleteStatus(int i) {
+    statuses.remove(i);
+  }
 }
 
 class Task implements Comparable<Task> {

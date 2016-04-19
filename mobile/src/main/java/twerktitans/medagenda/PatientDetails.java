@@ -1,13 +1,17 @@
 package twerktitans.medagenda;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +33,10 @@ import java.util.LinkedList;
 public class PatientDetails extends AppCompatActivity {
 
   Patient patient;
+  ListView patientSchedule;
+  ListView patientStatuses;
+  final PatientDetails thisContext = this;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -47,7 +55,8 @@ public class PatientDetails extends AppCompatActivity {
     name.setText(patient.getName());
     room.setText(patient.room);
 
-    refreshSchedule();
+    setupLists();
+    refreshLists();
 
     FloatingActionButton newTask = (FloatingActionButton) findViewById(R.id.btnAddTask);
     FloatingActionButton newStatus = (FloatingActionButton) findViewById(R.id.btnAddStatus);
@@ -70,18 +79,78 @@ public class PatientDetails extends AppCompatActivity {
     });
   }
 
-  public void onStart() {
-    super.onStart();
-    refreshSchedule();
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.patient_action_bar, menu);
+    return true;
   }
 
-  private void refreshSchedule() {
+  public void onStart() {
+    super.onStart();
+    refreshLists();
+  }
+
+  private void setupLists() {
+    patientSchedule = (ListView) findViewById(R.id.listPatientSchedule);
+    patientStatuses = (ListView) findViewById(R.id.listPatientStatus);
+    final Patient p = patient;
+    patientSchedule.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        final int i = position;
+
+        new AlertDialog.Builder(thisContext)
+          .setTitle("Delete Patient")
+          .setMessage("Are you sure you want to delete this task?")
+          .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // continue with delete
+              p.tasks.remove(i);
+              thisContext.refreshLists();
+            }
+          })
+          .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // do nothing
+            }
+          })
+          .setIcon(android.R.drawable.ic_dialog_alert) //TODO: replace with our own icon
+          .show();
+      }
+    });
+
+    patientStatuses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        final int i = position;
+
+        new AlertDialog.Builder(thisContext)
+          .setTitle("Delete Patient")
+          .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // continue with delete
+              p.deleteStatus(i);
+              thisContext.refreshLists();
+            }
+          })
+          .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // do nothing
+            }
+          })
+          .setIcon(android.R.drawable.ic_dialog_alert) //TODO: replace with our own icon
+          .show();
+      }
+    });
+  }
+
+  private void refreshLists() {
     Collections.sort(patient.tasks);
-    ListView patientSchedule = (ListView) findViewById(R.id.listPatientSchedule);
+
     ScheduleAdapter scheduleAdapter = new ScheduleAdapter(this, patient.tasks);
     patientSchedule.setAdapter(scheduleAdapter);
 
-    ListView patientStatuses = (ListView) findViewById(R.id.listPatientStatus);
     StatusAdapter statusAdapter = new StatusAdapter(this, patient.statuses);
     patientStatuses.setAdapter(statusAdapter);
   }
@@ -89,9 +158,30 @@ public class PatientDetails extends AppCompatActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
-      // Respond to the action bar's Up/Home button
       case android.R.id.home:
+        // Respond to the action bar's Up/Home button
         NavUtils.navigateUpFromSameTask(this);
+        return true;
+      case R.id.delete:
+        // Make dialog to delete patient
+        new AlertDialog.Builder(this)
+          .setTitle("Delete Patient")
+          .setMessage("Are you sure you want to delete this patient?")
+          .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // continue with delete
+              Log.d("T", "This patient would have been deleted!");
+              MainActivity.patients.remove(patient);
+              thisContext.finish();
+            }
+          })
+          .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // do nothing
+            }
+          })
+          .setIcon(android.R.drawable.ic_dialog_alert) //TODO: replace with our own icon
+          .show();
         return true;
     }
     return super.onOptionsItemSelected(item);

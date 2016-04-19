@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
     switch (item.getItemId()) {
       case R.id.add:
         //TODO: Add new patient from here
-        Log.d("T", "Add patient!");
         Intent newPatientIntent = new Intent(MainActivity.this, NewPatientActivity.class);
         startActivity(newPatientIntent);
         return true;
