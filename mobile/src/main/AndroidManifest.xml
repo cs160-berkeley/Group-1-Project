@@ -44,7 +44,7 @@
             android:label="New Patient">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="twerktitans.medagenda.MainActivity" />
+                android:value="twerktitans.medagenda.DisplayPatients" />
         </activity>
 
         <service android:name=".PhoneToWatchService" />
