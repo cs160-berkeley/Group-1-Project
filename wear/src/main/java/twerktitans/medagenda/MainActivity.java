@@ -27,6 +27,8 @@ public class MainActivity extends Activity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         mTextView = (TextView) findViewById(R.id.intro_text);
+        String intro_text = "Welcome! \n Tap on patient or badge in to view to do list. ";
+        mTextView.setText(intro_text);
 
         if ((p == null && extras != null) || (p != null && extras != null)) {
           Log.d("WATCH_MA", "in here!");
