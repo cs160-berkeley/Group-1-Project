@@ -26,6 +26,14 @@ class Patient implements Comparable<Patient>{
     return firstName + " " + lastName;
   }
 
+  LinkedList<Task> getTasks(){
+    return tasks;
+  }
+
+  LinkedList<Status> getStatuses(){
+    return statuses;
+  }
+
   Task getFirstTask() {
     if (tasks.size() > 0)
     {

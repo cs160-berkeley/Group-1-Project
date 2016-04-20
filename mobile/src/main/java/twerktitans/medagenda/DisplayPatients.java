@@ -42,13 +42,18 @@ public class DisplayPatients extends AppCompatActivity {
             patients = new LinkedList<>();
             Patient p = new Patient();
             Task t = new Task();
+            Task q = new Task();
             p.firstName = "Eric";
             p.lastName = "Paulos";
             p.room = "Jacobs 310";
             t.details = "Give coffee";
             t.time = Calendar.getInstance();
             t.color = Color.parseColor("#00FF00");
+            q.details = "Take Temperature";
+            q.time = Calendar.getInstance();
+            q.color = Color.parseColor("#00FF00");
             p.tasks.add(t);
+            p.tasks.add(q);
             patients.add(p);
 
             p = new Patient();
@@ -118,7 +123,12 @@ public class DisplayPatients extends AppCompatActivity {
 
                 //Start Wear Service
                 Patient p = patients.get(position);
-                String s = p.getName() + ";" + position + ";" + p.getFirstTask().details + ";" + p.getFirstTaskTime();
+                String s = p.getName() + ";" + position + ";";
+                for (int i = 0; i < p.getTaskSize(); i += 1) {
+                    s += p.getTasks().get(i).details+ ";";
+                    s += p.getTasks().get(i).getTaskTime() + ";";
+                }
+                s = s.substring(0, s.length() - 1);
                 Log.v("MAIN_ACTIVITY", "s is: " + s);
                 Intent sendToWear = new Intent(DisplayPatients.this, PhoneToWatchService.class);
                 sendToWear.putExtra("Data", s);
