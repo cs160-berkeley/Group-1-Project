@@ -3,7 +3,11 @@ package twerktitans.medagenda;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +21,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.location.DetectedActivity;
+
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -74,6 +81,27 @@ public class DisplayPatients extends AppCompatActivity {
             }
         }
         refreshList();
+
+
+//        Intent intent = getIntent();
+
+        Log.d("before NFC", "9o9u,kgh");
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {
+            Log.d("NFC discovered", "before rawMsgs check");
+            Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+            if (rawMsgs != null) {
+
+                NdefRecord ndr = ((NdefMessage) rawMsgs[0]).getRecords()[0];
+                String nfcStr = new String(Arrays.copyOfRange(ndr.getPayload(), 3, ndr.getPayload().length) );
+                Log.d("NFC Works", nfcStr);
+
+                Intent detailIntent = new Intent(DisplayPatients.this, PatientDetails.class);
+                int position = 0; // dummy
+                detailIntent.putExtra("INDEX", position);
+                startActivity(detailIntent);
+            }
+        }
+
     }
 
     private void refreshList() {
