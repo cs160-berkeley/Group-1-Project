@@ -19,12 +19,18 @@
         android:src="@drawable/checkmark"/>
 
     <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="You won't need
+ to come back until"
+    android:textColor="#000000"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="You won't need
- to come back until
-  4:30PM"
+        android:text="4:30PM"
+        android:textSize="20dp"
         android:textColor="#000000"/>
-
 </LinearLayout>
