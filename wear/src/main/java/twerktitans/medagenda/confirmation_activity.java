@@ -42,6 +42,7 @@ public class confirmation_activity extends Activity {
                 } else {
                     // go back to to - do list.
                     Intent back_to_list = new Intent(getApplicationContext(), MainActivity.class);
+                    back_to_list.putExtra("patient_info", MainActivity.p.getInfo());
                     back_to_list.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     getApplicationContext().startActivity(back_to_list);
                 }

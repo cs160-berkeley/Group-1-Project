@@ -13,6 +13,7 @@ public class PatientInfo {
     private String patient_pos;
     private ArrayList<String> tasks;
     private ArrayList<String> times;
+    private String information;
 
     public PatientInfo(String name, ArrayList<String> tasks, ArrayList<String> times){
         this.name = name;
@@ -25,6 +26,7 @@ public class PatientInfo {
         this.patient_pos = "";
         this.tasks = new ArrayList<String>();
         this.times = new ArrayList<String>();
+        this.information = "";
     }
 
     protected String getName(){
@@ -57,19 +59,25 @@ public class PatientInfo {
      *  respective fields. **/
     protected void parseInfo(String data){
         String [] info = data.split(";");
-        // System.out.println("length of info is: " + info.length);
         this.name = info[0];
         this.patient_pos = info[1];
         for (int i = 2; i < info.length; i += 2) {
-            // System.out.println(info[i]);
             this.tasks.add(info[i]);
             this.times.add(info[i+1]);
-            // System.out.println(info[i + 1]);
         }
     }
 
     protected String getPatientPos(){
         return this.patient_pos;
+    }
+
+    protected String getInfo() {
+        information += this.name + ";" + this.patient_pos + ";";
+        for(int i = 0; i < this.tasks.size(); i += 1) {
+            information += this.tasks.get(i) + ";" + this.times.get(i) + ";";
+        }
+        System.out.println("info is: " + information);
+        return information.substring(0, information.length() - 1);
     }
 }
 
