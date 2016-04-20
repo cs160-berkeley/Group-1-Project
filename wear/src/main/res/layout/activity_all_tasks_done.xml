@@ -16,7 +16,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/all_done_icon"/>
+        android:src="@drawable/checkmark"/>
 
     <TextView
         android:layout_width="match_parent"
