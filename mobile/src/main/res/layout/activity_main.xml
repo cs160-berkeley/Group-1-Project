@@ -6,64 +6,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@color/lightBlueBG">
+    android:background="#c2dfef">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="40dp"
-        >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textSize="20dp"
-            android:text="Username"
-            android:layout_weight="0.75"/>
+        android:id="@+id/logo"
+        android:src="@drawable/Logo"
+        android:layout_gravity="center_horizontal" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_weight="1"
-            android:singleLine="true"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="275dp"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="0.75"
-            android:textSize="20dp"
-            android:text="Password"/>
+        android:padding="10dip"
+        android:background="@drawable/textbox"
+        android:hint="Username"
+        android:layout_gravity="center"
+        android:inputType="text"/>
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="40dp"
-            android:password="true"
-            android:layout_weight="1"
-            android:singleLine="true"/>
-    </LinearLayout>
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="275dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:background="@drawable/textbox"
+        android:hint="Password"
+        android:layout_gravity="center"
+        android:inputType="text"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         />
 
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Login"
+        android:textSize="20dp"
         android:background="@color/actionBarColor"
         android:textColor="@color/white"/>
 
