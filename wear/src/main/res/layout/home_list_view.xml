@@ -23,9 +23,4 @@
             android:textColor="#828282"
             android:layout_gravity="center_horizontal"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:color="#000000"/>
-
 </LinearLayout>
