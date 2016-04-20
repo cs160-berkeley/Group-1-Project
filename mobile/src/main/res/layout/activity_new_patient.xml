@@ -39,10 +39,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Date Of Birth"
+        android:text="Set DOB"
         android:id="@+id/btnNewPatientSetDoB"
         android:layout_below="@+id/textNewPatientDoB"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="DOB"
+        android:text="Date of Birth"
         android:id="@+id/textView5"
         android:padding="8dp"
         android:layout_below="@+id/editNewPatientLastName"
@@ -87,16 +91,19 @@
         android:layout_below="@+id/imageView10"
         android:layout_alignParentStart="true"/>
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
         android:id="@+id/btnNewPatientAdd"
+        android:layout_marginTop="39dp"
+        android:textColor="@color/white"
         android:background="@color/actionBarColor"
-        android:src="@drawable/plus_icon"
-        android:scaleType="fitCenter"
-        android:layout_marginRight="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/editNewPatientRoom"
-        android:layout_marginBottom="16dp"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@+id/editNewPatientRoom"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textSize="18dp"/>
 
 </RelativeLayout>

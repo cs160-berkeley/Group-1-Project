@@ -37,16 +37,18 @@ public class NewPatientActivity extends AppCompatActivity {
     final EditText room = (EditText) findViewById(R.id.editNewPatientRoom);
     final TextView dateOfBirth = (TextView) findViewById(R.id.textNewPatientDoB);
     Button setDoB = (Button) findViewById(R.id.btnNewPatientSetDoB);
-    ImageButton addPatient = (ImageButton) findViewById(R.id.btnNewPatientAdd);
+    Button addPatient = (Button) findViewById(R.id.btnNewPatientAdd);
 
     Calendar temp = Calendar.getInstance();
     year = temp.get(Calendar.YEAR);
     month = temp.get(Calendar.MONTH)+1;
     day = temp.get(Calendar.DAY_OF_MONTH);
-    p.dateOfBirth = "" + month + "-" + day + "-" + year;
+    p.admitDate = "" + month + "-" + day + "-" + year;
+    p.dateOfBirth = p.admitDate;
     dateOfBirth.setText(p.dateOfBirth);
 
-    mOnDateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+      mOnDateSetListener = new DatePickerDialog.OnDateSetListener() {
       @Override
       public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         Log.d("a", year + " " + (monthOfYear+1) + " " + dayOfMonth);

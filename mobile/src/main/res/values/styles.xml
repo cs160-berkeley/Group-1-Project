@@ -5,7 +5,10 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/actionBarColor</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/actionBarColor</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">@color/actionBarColor</item>
+        <item name="colorControlHighlight">@color/actionBarColor</item>
         <item name="android:actionBarSize">60dp</item>
     </style>
 

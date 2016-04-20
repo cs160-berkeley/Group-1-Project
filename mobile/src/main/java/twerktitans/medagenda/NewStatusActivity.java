@@ -3,6 +3,7 @@ package twerktitans.medagenda;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,17 +24,17 @@ public class NewStatusActivity extends AppCompatActivity {
     setContentView(R.layout.activity_new_status);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    setupStaticFields();
+    //setupStaticFields();
     setupFormHandlers();
   }
 
   private void setupStaticFields() {
-    final int index = getIntent().getIntExtra("INDEX", 0);
-    Patient p = DisplayPatients.patients.get(index);
-    TextView name = (TextView) findViewById(R.id.textNewStatusPatient);
-    TextView room = (TextView) findViewById(R.id.textNewStatusRoom);
-    name.setText(p.getName());
-    room.setText(p.room);
+//    final int index = getIntent().getIntExtra("INDEX", 0);
+//    Patient p = DisplayPatients.patients.get(index);
+//    TextView name = (TextView) findViewById(R.id.textNewStatusPatient);
+//    TextView room = (TextView) findViewById(R.id.textNewStatusRoom);
+//    name.setText(p.getName());
+//    room.setText(p.room);
   }
 
   private void setupFormHandlers() {
@@ -41,7 +42,7 @@ public class NewStatusActivity extends AppCompatActivity {
     final RelativeLayout timeLayout = (RelativeLayout) findViewById(R.id.layoutNewStatus);
     final ToggleButton timedToggle = (ToggleButton) findViewById(R.id.toggleNewStatusTimed);
     final EditText timeEdit = (EditText) findViewById(R.id.editNewStatusTime);
-    ImageButton addStatus = (ImageButton) findViewById(R.id.btnNewStatusAdd);
+    Button addStatus = (Button) findViewById(R.id.btnNewStatusAdd);
 
     timedToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
       @Override

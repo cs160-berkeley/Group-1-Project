@@ -13,6 +13,7 @@ class Patient implements Comparable<Patient>{
   String lastName;
   String room;
   String dateOfBirth;
+  String admitDate;
   LinkedList<Task> tasks;
   LinkedList<Status> statuses;
 

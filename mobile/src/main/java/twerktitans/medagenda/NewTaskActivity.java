@@ -59,21 +59,21 @@ public class NewTaskActivity extends AppCompatActivity {
       colorsList.add("purple");
     }
 
-    setupStaticFields();
+    //setupStaticFields();
     setupFormHandler();
   }
 
   private void setupStaticFields() {
-    TextView patientName = (TextView) findViewById(R.id.textNewTaskPatient);
-    TextView patientDoB = (TextView) findViewById(R.id.textNewTaskDoB);
-    TextView patientRoom = (TextView) findViewById(R.id.textNewTaskRoom);
-
-    final int index = getIntent().getIntExtra("INDEX", 0);
-
-    Patient p = DisplayPatients.patients.get(index);
-    patientName.setText(p.getName());
-    //patientDoB.setText(p.dateOfBirth);
-    patientRoom.setText(p.room);
+//    TextView patientName = (TextView) findViewById(R.id.textNewTaskPatient);
+//    TextView patientDoB = (TextView) findViewById(R.id.textNewTaskDoB);
+//    TextView patientRoom = (TextView) findViewById(R.id.textNewTaskRoom);
+//
+//    final int index = getIntent().getIntExtra("INDEX", 0);
+//
+//    Patient p = DisplayPatients.patients.get(index);
+//    patientName.setText(p.getName());
+//    patientDoB.setText(p.dateOfBirth);
+//    patientRoom.setText(p.room);
   }
 
   private void setupFormHandler() {
@@ -133,7 +133,7 @@ public class NewTaskActivity extends AppCompatActivity {
 
     final EditText minEdit = (EditText) findViewById(R.id.editNewTaskMinutes);
     final int index = getIntent().getIntExtra("INDEX", 0);
-    ImageButton addTask = (ImageButton) findViewById(R.id.btnNewStatusAdd);
+    Button addTask = (Button) findViewById(R.id.btnNewStatusAdd);
     addTask.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {

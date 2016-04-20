@@ -58,9 +58,13 @@ public class PatientDetails extends AppCompatActivity {
 
     TextView name = (TextView) findViewById(R.id.textPatientDetailName);
     TextView room = (TextView) findViewById(R.id.textPatientDetailRoom);
+    TextView admit = (TextView) findViewById(R.id.textPatientDetailAdmitDate);
+    TextView dob = (TextView) findViewById(R.id.textPatientDetailBirthday);
 
     name.setText(patient.getName());
     room.setText(patient.room);
+    admit.setText("Admitted: " + patient.admitDate);
+    dob.setText("Date of Birth: " + patient.dateOfBirth);
 
     setupLists();
     refreshLists();

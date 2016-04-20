@@ -24,7 +24,7 @@
         android:padding="12dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textStyle="bold"/>
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,6 +44,15 @@
         android:id="@+id/textPatientTaskTime"
         android:padding="12dp"
         android:layout_below="@+id/textPatientRoom"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView11"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/textPatientName"
+        android:layout_toRightOf="@+id/textPatientName"/>
 
 </RelativeLayout>

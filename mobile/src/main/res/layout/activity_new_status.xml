@@ -25,8 +25,9 @@
         android:layout_height="3dp"
         android:id="@+id/imageView8"
         android:src="@color/dividerColor"
-        android:layout_above="@+id/textNewStatusRoom"
-        android:layout_alignEnd="@+id/textNewStatusRoom"/>
+        android:layout_below="@+id/layoutNewStatus"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,62 +38,23 @@
         android:padding="12dp"
         android:textSize="22dp"
         android:layout_below="@+id/editNewStatusDetail"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"/>
 
     <ToggleButton
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="New ToggleButton"
         android:id="@+id/toggleNewStatusTimed"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_alignEnd="@+id/textNewStatusRoom"
         android:checked="true"
         android:textOn="Yes"
-        android:textOff="No"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textNewStatusRoom"
-        android:layout_alignTop="@+id/textNewStatusPatient"
+        android:textOff="No"
+        android:layout_below="@+id/editNewStatusDetail"
         android:layout_alignParentEnd="true"
-        android:padding="12dp"/>
-
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/btnNewStatusAdd"
-        android:background="@color/actionBarColor"
-        android:src="@drawable/plus_icon"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textNewStatusRoom"
-        android:layout_marginRight="16dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textNewTaskDoB"
-        android:paddingLeft="8dp"
-        android:layout_below="@+id/textNewStatusRoom"
-        android:layout_alignEnd="@+id/textView6"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textNewStatusPatient"
-        android:textSize="26dp"
-        android:padding="8dp"
-        android:layout_marginBottom="28dp"
-        android:layout_above="@+id/btnNewStatusAdd"
-        android:layout_alignParentStart="true"/>
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -134,5 +96,20 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="8dp"/>
     </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:id="@+id/btnNewStatusAdd"
+        android:layout_below="@+id/imageView8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:background="@color/actionBarColor"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textAllCaps="false"
+        android:textSize="18dp"/>
 
 </RelativeLayout>
