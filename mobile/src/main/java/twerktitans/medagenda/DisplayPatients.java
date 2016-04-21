@@ -48,10 +48,12 @@ public class DisplayPatients extends AppCompatActivity {
             p.room = "Jacobs 310";
             t.details = "Give coffee";
             t.time = Calendar.getInstance();
-            t.color = Color.parseColor("#00FF00");
+            t.time.add(Calendar.HOUR, 2);
+            t.color =  NewTaskActivity.RED_CODE;
             q.details = "Take Temperature";
             q.time = Calendar.getInstance();
-            q.color = Color.parseColor("#00FF00");
+            q.time.add(Calendar.MINUTE, 75);
+            q.color = NewTaskActivity.BLUE_CODE;
             p.tasks.add(t);
             p.tasks.add(q);
             patients.add(p);
@@ -63,8 +65,20 @@ public class DisplayPatients extends AppCompatActivity {
             p.room = "Rm. 123";
             t.details = "Applaud him";
             t.time = Calendar.getInstance();
-            t.time.add(Calendar.HOUR, 1);
-            t.color = Color.parseColor("#0000FF");
+            t.time.add(Calendar.HOUR, -1);
+            t.color = NewTaskActivity.ORANGE_CODE;
+            p.tasks.add(t);
+            patients.add(p);
+
+            p = new Patient();
+            t = new Task();
+            p.firstName = "Conan";
+            p.lastName = "O'Brien";
+            p.room = "Rm. 456";
+            t.details = "Laugh at his jokes";
+            t.time = Calendar.getInstance();
+            t.time.add(Calendar.MINUTE, 20);
+            t.color = NewTaskActivity.PURPLE_CODE;
             p.tasks.add(t);
             patients.add(p);
 
@@ -168,10 +182,15 @@ public class DisplayPatients extends AppCompatActivity {
 class PatientAdapter extends BaseAdapter {
     private Context context;
     private LinkedList<Patient> patients;
+    Calendar now;
+    Calendar later;
 
     public PatientAdapter(Context context, LinkedList<Patient> patients) {
         this.context = context;
         this.patients = patients;
+        now = Calendar.getInstance();
+        later = Calendar.getInstance();
+        later.add(Calendar.MINUTE, 60);
     }
 
     @Override
@@ -208,8 +227,20 @@ class PatientAdapter extends BaseAdapter {
         Task firstTask = patient.getFirstTask();
         task.setText(firstTask.details);
         task.setTextColor(firstTask.color);
-        taskTime.setText(patient.getFirstTaskTime()); //TODO: We'll need to change this when we figure out how to do timers
 
+        taskTime.setText(patient.getFirstTaskTime()); //TODO: We'll need to change this when we figure out how to do timers
+        if (firstTask.time != null) {
+            if (firstTask.time.compareTo(now) <= 0) {
+                taskTime.setTextColor(context.getResources().getColor(R.color.urgent_red));
+            }
+            else if (firstTask.time.compareTo(later) <= 0)
+            {
+                taskTime.setTextColor(context.getResources().getColor(R.color.urgent_yellow));
+            }
+            else {
+                taskTime.setTextColor(context.getResources().getColor(R.color.urgent_green));
+            }
+        }
         return patientListItem;
     }
 }
