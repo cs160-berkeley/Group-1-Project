@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
           p = new PatientInfo();
           String s = extras.getString("patient_info");
           p.parseInfo(s);
+          System.out.println("patient's position in arraylist is: " + p.getPatientPos());
           TextView patient_name = (TextView)findViewById(R.id.name);
           patient_name.setText(p.getName());
           final PatientArrayAdapter adapter = new PatientArrayAdapter(getApplicationContext(),

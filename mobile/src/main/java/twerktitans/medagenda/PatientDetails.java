@@ -32,6 +32,7 @@ public class PatientDetails extends AppCompatActivity {
   ListView patientSchedule;
   ListView patientStatuses;
   final PatientDetails thisContext = this;
+  private int index0 = -1;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +41,28 @@ public class PatientDetails extends AppCompatActivity {
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     Intent myIntent = getIntent();
-    final int index = myIntent.getIntExtra("INDEX", 0);
-
-    patient = DisplayPatients.patients.get(index);
     Intent intent = getIntent();
     Bundle extras = intent.getExtras();
     if (extras != null) {
       if (extras.containsKey("tasks")) {
         String [] indices = extras.getString("tasks").split(";");
         int indx = Integer.parseInt(indices[0]);
+        index0 = indx;
         int pos = Integer.parseInt(indices[1]);
+        System.out.println("PatientDetails, index is: " + indx);
         DisplayPatients.patients.get(indx).deleteTask(pos);
       }
     }
 
+    final int index = myIntent.getIntExtra("INDEX", 0);
+    if (index0 != -1) {
+      patient = DisplayPatients.patients.get(index0);
+    } else {
+      patient = DisplayPatients.patients.get(index);
+    }
+//    final int index = myIntent.getIntExtra("INDEX", 0); // this is the line that is wrong. need to pass index.
+//    System.out.println("index in PatientDetail is: " + index);
+//    patient = DisplayPatients.patients.get(index);
     Collections.sort(patient.tasks);
 
     TextView name = (TextView) findViewById(R.id.textPatientDetailName);

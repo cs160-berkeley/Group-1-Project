@@ -2,7 +2,6 @@ package twerktitans.medagenda;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -21,11 +20,15 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.location.DetectedActivity;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class DisplayPatients extends AppCompatActivity {
@@ -37,44 +40,6 @@ public class DisplayPatients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_patients);
 
-        if (firstTime) {
-            System.out.println("DisplayPatients FIRSTTIME!");
-            patients = new LinkedList<>();
-            Patient p = new Patient();
-            Task t = new Task();
-            Task q = new Task();
-            p.firstName = "Eric";
-            p.lastName = "Paulos";
-            p.room = "Jacobs 310";
-            t.details = "Give coffee";
-            t.time = Calendar.getInstance();
-            t.color = Color.parseColor("#00FF00");
-            q.details = "Take Temperature";
-            q.time = Calendar.getInstance();
-            q.color = Color.parseColor("#00FF00");
-            p.tasks.add(t);
-            p.tasks.add(q);
-            patients.add(p);
-
-            p = new Patient();
-            t = new Task();
-            p.firstName = "Stephen";
-            p.lastName = "Colbert";
-            p.room = "Rm. 123";
-            t.details = "Applaud him";
-            t.time = Calendar.getInstance();
-            t.time.add(Calendar.HOUR, 1);
-            t.color = Color.parseColor("#0000FF");
-            p.tasks.add(t);
-            patients.add(p);
-
-            Log.d("t", patients.get(0).toString());
-            Log.d("t", patients.get(1).toString());
-            Collections.sort(patients);
-            firstTime = false;
-        }
-
-        System.out.println("DisplayPatients IN HERE!");
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
@@ -83,16 +48,18 @@ public class DisplayPatients extends AppCompatActivity {
                 int indx = Integer.parseInt(indices[0]);
                 int pos = Integer.parseInt(indices[1]);
                 patients.get(indx).deleteTask(pos);
+            } else if (firstTime && extras.containsKey("json_data")) {
+                patients = new LinkedList<>();
+                parseJson(extras.getString("json_data"));
+                Collections.sort(patients);
+                firstTime = false;
             }
         }
+
+        System.out.println("DisplayPatients IN HERE!");
         refreshList();
 
-
-//        Intent intent = getIntent();
-
-        Log.d("before NFC", "9o9u,kgh");
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {
-            Log.d("NFC discovered", "before rawMsgs check");
             Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
             if (rawMsgs != null) {
 
@@ -107,6 +74,50 @@ public class DisplayPatients extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void parseJson(String json_data) {
+        try {
+            System.out.println("json is: " + json_data);
+            JSONArray jsonarr = new JSONArray(json_data);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD'T'HH:mm:ss.SSS");
+            for (int i = 0; i < jsonarr.length(); i += 1) {
+                Task t = new Task();
+                Patient p = new Patient();
+                JSONObject jsonobj = jsonarr.getJSONObject(i);
+                p.firstName = jsonobj.get("firstname").toString();
+                p.lastName = jsonobj.get("lastname").toString();
+                p.dateOfBirth = jsonobj.get("dob").toString();
+                p.admitDate = "3/22/2016";
+                p.room = "Rm. " + jsonobj.get("room").toString();
+                try {
+                    Date date = sdf.parse(jsonobj.get("dob").toString());
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(date);
+                    p.dateOfBirth = (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_WEEK) + "/" +
+                                    cal.get(Calendar.YEAR);
+                } catch(Exception e){
+                    Log.d("DisplayPatient", "Unable to parse dob" + e.getMessage());
+                }
+                JSONArray task_list = jsonobj.getJSONArray("tasks");
+                for (int j = 0; j < task_list.length(); j += 1) {
+                    JSONObject lst = task_list.getJSONObject(j);
+                    t.details = lst.get("details").toString();
+                    try {
+                        Date date = sdf.parse(lst.get("time_due").toString());
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTime(date);
+                        t.time = calendar;
+                        p.tasks.add(t);
+                    } catch(Exception e){
+                        Log.d("DisplayPatient", "Unable to parse time " + e.getMessage());
+                    }
+                }
+                patients.add(p);
+            }
+        } catch(JSONException e) {
+            Log.d("DisplayPatients", "could not parse json string");
+        }
     }
 
     private void refreshList() {
