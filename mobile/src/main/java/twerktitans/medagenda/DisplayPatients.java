@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +38,10 @@ public class DisplayPatients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_patients);
 
+        if (Icon.icons == null) {
+            Icon.setup();
+        }
+
         if (firstTime) {
             System.out.println("DisplayPatients FIRSTTIME!");
             patients = new LinkedList<>();
@@ -49,11 +54,11 @@ public class DisplayPatients extends AppCompatActivity {
             t.details = "Give coffee";
             t.time = Calendar.getInstance();
             t.time.add(Calendar.HOUR, 2);
-            t.color =  NewTaskActivity.RED_CODE;
+            t.iconIndex = 0;
             q.details = "Take Temperature";
             q.time = Calendar.getInstance();
             q.time.add(Calendar.MINUTE, 75);
-            q.color = NewTaskActivity.BLUE_CODE;
+            q.iconIndex = 1;
             p.tasks.add(t);
             p.tasks.add(q);
             patients.add(p);
@@ -63,10 +68,10 @@ public class DisplayPatients extends AppCompatActivity {
             p.firstName = "Stephen";
             p.lastName = "Colbert";
             p.room = "Rm. 123";
-            t.details = "Applaud him";
+            t.details = "Applaud him and worship his greatness";
             t.time = Calendar.getInstance();
             t.time.add(Calendar.HOUR, -1);
-            t.color = NewTaskActivity.ORANGE_CODE;
+            t.iconIndex = 3;
             p.tasks.add(t);
             patients.add(p);
 
@@ -78,17 +83,13 @@ public class DisplayPatients extends AppCompatActivity {
             t.details = "Laugh at his jokes";
             t.time = Calendar.getInstance();
             t.time.add(Calendar.MINUTE, 20);
-            t.color = NewTaskActivity.PURPLE_CODE;
+            t.iconIndex = 4;
             p.tasks.add(t);
             patients.add(p);
 
-            Log.d("t", patients.get(0).toString());
-            Log.d("t", patients.get(1).toString());
-            Collections.sort(patients);
             firstTime = false;
         }
 
-        System.out.println("DisplayPatients IN HERE!");
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
@@ -125,6 +126,7 @@ public class DisplayPatients extends AppCompatActivity {
 
     private void refreshList() {
         ListView patientList = (ListView) findViewById(R.id.listPatients);
+        Collections.sort(patients);
         PatientAdapter patientAdapter = new PatientAdapter(this, patients);
         patientList.setAdapter(patientAdapter);
 
@@ -220,13 +222,15 @@ class PatientAdapter extends BaseAdapter {
         TextView room = (TextView) patientListItem.findViewById(R.id.textPatientRoom);
         TextView task = (TextView) patientListItem.findViewById(R.id.textPatientTask);
         TextView taskTime = (TextView) patientListItem.findViewById(R.id.textPatientTaskTime);
+        ImageView icon = (ImageView) patientListItem.findViewById(R.id.imgPatientTaskIcon);
 
         name.setText(patient.getName());
         room.setText(patient.room);
 
         Task firstTask = patient.getFirstTask();
         task.setText(firstTask.details);
-        task.setTextColor(firstTask.color);
+
+        icon.setImageResource(Icon.getIconResource(firstTask.iconIndex));
 
         taskTime.setText(patient.getFirstTaskTime()); //TODO: We'll need to change this when we figure out how to do timers
         if (firstTask.time != null) {

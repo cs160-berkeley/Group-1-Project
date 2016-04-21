@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -35,7 +34,6 @@ public class NewTaskActivity extends AppCompatActivity {
   static final int ORANGE_CODE = Color.parseColor("#F2994A");
   static final int GREEN_CODE = Color.parseColor("#219653");
 
-  static ArrayList<String> colorsList;
   static final int TIME_DIALOG_ID = 0;
   final Task newTask = new Task();
 
@@ -49,15 +47,6 @@ public class NewTaskActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_new_task);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-    if (colorsList == null) {
-      colorsList = new ArrayList<>(5);
-      colorsList.add("red");
-      colorsList.add("blue");
-      colorsList.add("orange");
-      colorsList.add("green");
-      colorsList.add("purple");
-    }
 
     //setupStaticFields();
     setupFormHandler();
@@ -88,9 +77,7 @@ public class NewTaskActivity extends AppCompatActivity {
       public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         Calendar cal = Calendar.getInstance();
 
-        Log.d("a", hourOfDay + "" + minute);
-
-        cal.set(Calendar.HOUR, hourOfDay);
+        cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
         cal.set(Calendar.MINUTE, minute);
 
         if (cal.compareTo(Calendar.getInstance()) <= 0) {
@@ -112,7 +99,7 @@ public class NewTaskActivity extends AppCompatActivity {
     });
 
     final Spinner colorSpinner = (Spinner) findViewById(R.id.newTaskColorSpinner);
-    ArrayAdapter<String> adapter = new ColorSpinnerAdapter(this, R.array.colors, colorsList);
+    ArrayAdapter<String> adapter = new ColorSpinnerAdapter(this, R.array.colors, Icon.icons);
     adapter.setDropDownViewResource(R.layout.color_spinner_item);
     colorSpinner.setAdapter(adapter);
 
@@ -146,7 +133,7 @@ public class NewTaskActivity extends AppCompatActivity {
         }
         else {
 
-          getColor();
+          getCategory();
           newTask.details = detailsEdit.getText().toString();
           newTask.minBtwRepeats = 0;
           getRepeats();
@@ -156,25 +143,9 @@ public class NewTaskActivity extends AppCompatActivity {
         }
       }
 
-      private void getColor() {
-        int colorIndex = colorSpinner.getSelectedItemPosition();
-        switch (colorsList.get(colorIndex)) {
-          case "red":
-            newTask.color = RED_CODE;
-            break;
-          case "blue":
-            newTask.color = BLUE_CODE;
-            break;
-          case "orange":
-            newTask.color = ORANGE_CODE;
-            break;
-          case "green":
-            newTask.color = GREEN_CODE;
-            break;
-          default:
-            newTask.color = PURPLE_CODE;
-            break;
-        }
+      private void getCategory() {
+        int iconIndex = colorSpinner.getSelectedItemPosition();
+        newTask.iconIndex = iconIndex;
       }
 
       private void getRepeats() {
@@ -233,7 +204,29 @@ class ColorSpinnerAdapter extends ArrayAdapter<String> {
     //label.setText(objects.get(position));
 
     ImageView iv = (ImageView) entry.findViewById(R.id.imgColorSpinner);
-    switch (objects.get(position)) {
+    iv.setImageResource(Icon.getIconResource(position));
+
+    return entry;
+  }
+
+}
+
+/*
+code from older design decisions
+
+//static ArrayList<String> colorsList;
+  //    if (colorsList == null) {
+  //      colorsList = new ArrayList<>(5);
+  //      colorsList.add("red");
+  //      colorsList.add("blue");
+  //      colorsList.add("orange");
+  //      colorsList.add("green");
+  //      colorsList.add("purple");
+  //    }
+
+ArrayAdapter<String> adapter = new ColorSpinnerAdapter(this, R.array.colors, colorsList);
+
+switch (objects.get(position)) {
       case "red":
         iv.setImageResource(R.drawable.red);
         break;
@@ -249,9 +242,24 @@ class ColorSpinnerAdapter extends ArrayAdapter<String> {
       default:
         iv.setImageResource(R.drawable.purple);
         break;
-    }
-
-    return entry;
-  }
-
-}
+private void getColor() {
+        int colorIndex = colorSpinner.getSelectedItemPosition();
+        switch (colorsList.get(colorIndex)) {
+          case "red":
+            newTask.color = RED_CODE;
+            break;
+          case "blue":
+            newTask.color = BLUE_CODE;
+            break;
+          case "orange":
+            newTask.color = ORANGE_CODE;
+            break;
+          case "green":
+            newTask.color = GREEN_CODE;
+            break;
+          default:
+            newTask.color = PURPLE_CODE;
+            break;
+        }
+      }
+ */
