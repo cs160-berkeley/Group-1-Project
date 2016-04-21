@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,6 +40,10 @@ public class DisplayPatients extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_patients);
+
+        if (Icon.icons == null) {
+            Icon.setup();
+        }
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -82,7 +87,6 @@ public class DisplayPatients extends AppCompatActivity {
             JSONArray jsonarr = new JSONArray(json_data);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD'T'HH:mm:ss.SSS");
             for (int i = 0; i < jsonarr.length(); i += 1) {
-                Task t = new Task();
                 Patient p = new Patient();
                 JSONObject jsonobj = jsonarr.getJSONObject(i);
                 p.firstName = jsonobj.get("firstname").toString();
@@ -101,8 +105,11 @@ public class DisplayPatients extends AppCompatActivity {
                 }
                 JSONArray task_list = jsonobj.getJSONArray("tasks");
                 for (int j = 0; j < task_list.length(); j += 1) {
+                    Task t = new Task();
                     JSONObject lst = task_list.getJSONObject(j);
                     t.details = lst.get("details").toString();
+//                    System.out.println("details is: " + t.details);
+                    t.iconIndex = -1;
                     try {
                         Date date = sdf.parse(lst.get("time_due").toString());
                         Calendar calendar = Calendar.getInstance();
@@ -113,7 +120,16 @@ public class DisplayPatients extends AppCompatActivity {
                         Log.d("DisplayPatient", "Unable to parse time " + e.getMessage());
                     }
                 }
+
+                JSONArray status_list = jsonobj.getJSONArray("status");
+                for (int k = 0; k < status_list.length(); k += 1) {
+                    Status s = new Status();
+                    JSONObject lst = status_list.getJSONObject(k);
+                    s.details = lst.get("details").toString();
+                    p.statuses.add(s);
+                }
                 patients.add(p);
+                System.out.println("-------");
             }
         } catch(JSONException e) {
             Log.d("DisplayPatients", "could not parse json string");
@@ -122,6 +138,7 @@ public class DisplayPatients extends AppCompatActivity {
 
     private void refreshList() {
         ListView patientList = (ListView) findViewById(R.id.listPatients);
+        Collections.sort(patients);
         PatientAdapter patientAdapter = new PatientAdapter(this, patients);
         patientList.setAdapter(patientAdapter);
 
@@ -179,10 +196,15 @@ public class DisplayPatients extends AppCompatActivity {
 class PatientAdapter extends BaseAdapter {
     private Context context;
     private LinkedList<Patient> patients;
+    Calendar now;
+    Calendar later;
 
     public PatientAdapter(Context context, LinkedList<Patient> patients) {
         this.context = context;
         this.patients = patients;
+        now = Calendar.getInstance();
+        later = Calendar.getInstance();
+        later.add(Calendar.MINUTE, 60);
     }
 
     @Override
@@ -212,15 +234,29 @@ class PatientAdapter extends BaseAdapter {
         TextView room = (TextView) patientListItem.findViewById(R.id.textPatientRoom);
         TextView task = (TextView) patientListItem.findViewById(R.id.textPatientTask);
         TextView taskTime = (TextView) patientListItem.findViewById(R.id.textPatientTaskTime);
+        ImageView icon = (ImageView) patientListItem.findViewById(R.id.imgPatientTaskIcon);
 
         name.setText(patient.getName());
         room.setText(patient.room);
 
         Task firstTask = patient.getFirstTask();
         task.setText(firstTask.details);
-        task.setTextColor(firstTask.color);
-        taskTime.setText(patient.getFirstTaskTime()); //TODO: We'll need to change this when we figure out how to do timers
 
+        icon.setImageResource(Icon.getIconResource(firstTask.iconIndex));
+
+        taskTime.setText(patient.getFirstTaskTime()); //TODO: We'll need to change this when we figure out how to do timers
+        if (firstTask.time != null) {
+            if (firstTask.time.compareTo(now) <= 0) {
+                taskTime.setTextColor(context.getResources().getColor(R.color.urgent_red));
+            }
+            else if (firstTask.time.compareTo(later) <= 0)
+            {
+                taskTime.setTextColor(context.getResources().getColor(R.color.urgent_yellow));
+            }
+            else {
+                taskTime.setTextColor(context.getResources().getColor(R.color.urgent_green));
+            }
+        }
         return patientListItem;
     }
 }

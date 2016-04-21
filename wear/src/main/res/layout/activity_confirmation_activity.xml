@@ -20,19 +20,19 @@
 
         <ImageButton
             android:id="@+id/back_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
+            android:layout_width="79dp"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:scaleType="fitCenter"
             android:background="#EBFAFF"
             android:src="@drawable/back_arrow"/>
 
         <ImageButton
             android:id="@+id/confirm_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
+            android:layout_width="79dp"
+            android:layout_marginLeft="13dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
             android:background="#EBFAFF"
             android:src="@drawable/check"/>
 

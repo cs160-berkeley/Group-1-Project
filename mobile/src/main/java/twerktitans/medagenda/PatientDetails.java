@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -242,11 +243,13 @@ class ScheduleAdapter extends BaseAdapter {
     final View taskListItem = inflater.inflate(R.layout.task_list_item, parent, false);
     TextView details = (TextView) taskListItem.findViewById(R.id.textTaskDetails);
     TextView time = (TextView) taskListItem.findViewById(R.id.textTaskTime);
+    ImageView icon = (ImageView) taskListItem.findViewById(R.id.imgTaskIcon);
 
     details.setText(task.details);
-    details.setTextColor(task.color);
+    //details.setTextColor(task.color);
     time.setText(task.getTaskTime());
-    time.setTextColor(task.color);
+    //time.setTextColor(task.color);
+    icon.setImageResource(Icon.getIconResource(task.iconIndex));
 
     return taskListItem;
   }

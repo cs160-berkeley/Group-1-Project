@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="Name"
         android:id="@+id/textPatientName"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="Room"
         android:id="@+id/textPatientRoom"
         android:padding="12dp"
         android:layout_alignParentTop="true"
@@ -27,20 +27,21 @@
         />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="Task"
         android:id="@+id/textPatientTask"
         android:padding="12dp"
-        android:layout_below="@+id/textPatientName"
-        android:layout_alignParentStart="true"/>
+        android:layout_toEndOf="@+id/imgPatientTaskIcon"
+        android:singleLine="true"
+        android:layout_below="@+id/textPatientName"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="Time"
         android:id="@+id/textPatientTaskTime"
         android:padding="12dp"
         android:layout_below="@+id/textPatientRoom"
@@ -48,11 +49,12 @@
         android:textStyle="bold"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView11"
-        android:layout_alignParentTop="true"
-        android:layout_alignBottom="@+id/textPatientName"
-        android:layout_toRightOf="@+id/textPatientName"/>
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imgPatientTaskIcon"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textPatientName"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"/>
 
 </RelativeLayout>

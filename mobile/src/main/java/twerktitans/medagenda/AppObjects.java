@@ -1,8 +1,7 @@
 package twerktitans.medagenda;
 
-import android.graphics.Color;
-
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.LinkedList;
 
 /**
@@ -52,6 +51,7 @@ class Patient implements Comparable<Patient>{
   }
 
   String getFirstTaskTime() {
+    Collections.sort(tasks);
     if (tasks.size() > 0)
     {
       return tasks.getFirst().getTaskTime();
@@ -98,7 +98,8 @@ class Patient implements Comparable<Patient>{
 class Task implements Comparable<Task> {
   String details;
   Calendar time; //TODO: Placeholder for whatever we use for the timer?
-  int color = Color.parseColor("#000000");
+  //int color = Color.parseColor("#000000");
+  int iconIndex;
   int minBtwRepeats;
 
   static Task getEmptyTask() {
@@ -179,6 +180,39 @@ class Status {
       return this.time.get(Calendar.HOUR) + ":" +
         String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
         AMOrPM;
+    }
+  }
+}
+
+class Icon {
+  static LinkedList<String> icons;
+
+  static void setup() {
+    if (icons == null) {
+      icons = new LinkedList<String>();
+      icons.add("pills");
+      icons.add("stethoscope");
+      icons.add("heartbeat");
+      icons.add("syringe");
+    }
+  }
+
+  static int getIconResource(int i) {
+    try {
+      switch (icons.get(i)) {
+        case "pills":
+          return R.drawable.pills_icon;
+        case "stethoscope":
+          return R.drawable.stethoscope_icon;
+        case "heartbeat":
+          return R.drawable.heartbeat_icon;
+        case "syringe":
+          return R.drawable.syringe_icon;
+        default:
+          return R.drawable.logo;
+      }
+    } catch (IndexOutOfBoundsException ioobe) {
+      return R.drawable.logo;
     }
   }
 }
