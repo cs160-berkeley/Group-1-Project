@@ -46,7 +46,6 @@ public class NewTaskActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_new_task);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     //setupStaticFields();
     setupFormHandler();
   }
@@ -171,6 +170,8 @@ public class NewTaskActivity extends AppCompatActivity {
     }
     return null;
   }
+
+
 }
 
 class ColorSpinnerAdapter extends ArrayAdapter<String> {
@@ -207,6 +208,9 @@ class ColorSpinnerAdapter extends ArrayAdapter<String> {
 
     return entry;
   }
+
+
+
 
 }
 
