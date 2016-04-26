@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -159,6 +160,23 @@ public class NewTaskActivity extends AppCompatActivity {
         }
       }
     });
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        finish();
+        break;
+    }
+    return true;
+  }
+
+  @Override
+  public void onBackPressed()
+  {
+    finish();
+    return;
   }
 
   @Override

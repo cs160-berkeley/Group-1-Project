@@ -93,6 +93,23 @@ class Patient implements Comparable<Patient>{
   public void deleteStatus(int i) {
     statuses.remove(i);
   }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Name: ").append(getName()).append("\n");
+    sb.append("Room: ").append(room).append("\n");
+    sb.append("DOB: ").append(dateOfBirth).append("\n");
+    sb.append("Admit: ").append(admitDate).append("\n");
+    sb.append("Tasks:\n");
+    for (int i = 0; i < tasks.size(); i++) {
+      sb.append("\t" + tasks.get(i).toString() + "\n");
+    }
+    sb.append("Statuses:\n");
+    for (int i = 0; i < statuses.size(); i++) {
+      sb.append(statuses.get(i).toString() + "\n");
+    }
+    return sb.toString();
+  }
 }
 
 class Task implements Comparable<Task> {
@@ -150,6 +167,11 @@ class Task implements Comparable<Task> {
       return 1;
     }
   }
+
+  public String toString()
+  {
+    return details + "\t" + getTaskTime() + "\t" + iconIndex + "\t" + minBtwRepeats;
+  }
 }
 
 class Status {
@@ -181,6 +203,10 @@ class Status {
         String.format("%02d", this.time.get(Calendar.MINUTE)) + " " +
         AMOrPM;
     }
+  }
+
+  public String toString() {
+    return details + "\t" + getStatusTime();
   }
 }
 
