@@ -122,7 +122,7 @@ public class PatientDetails extends AppCompatActivity {
         final int i = position;
 
         new AlertDialog.Builder(thisContext)
-          .setTitle("Delete Patient")
+          .setTitle("Delete Task")
           .setMessage("Are you sure you want to delete this task?")
           .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -147,7 +147,7 @@ public class PatientDetails extends AppCompatActivity {
         final int i = position;
 
         new AlertDialog.Builder(thisContext)
-          .setTitle("Delete Patient")
+          .setTitle("Delete Status")
           .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
               // continue with delete

@@ -2,6 +2,7 @@ package twerktitans.medagenda;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -35,6 +36,24 @@ public class NewStatusActivity extends AppCompatActivity {
 //    TextView room = (TextView) findViewById(R.id.textNewStatusRoom);
 //    name.setText(p.getName());
 //    room.setText(p.room);
+  }
+
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        finish();
+        break;
+    }
+    return true;
+  }
+
+  @Override
+  public void onBackPressed()
+  {
+    finish();
+    return;
   }
 
   private void setupFormHandlers() {

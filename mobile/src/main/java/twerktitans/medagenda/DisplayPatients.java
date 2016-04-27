@@ -56,12 +56,10 @@ public class DisplayPatients extends AppCompatActivity {
             } else if (firstTime && extras.containsKey("json_data")) {
                 patients = new LinkedList<>();
                 parseJson(extras.getString("json_data"));
-                Collections.sort(patients);
                 firstTime = false;
             }
         }
 
-        System.out.println("DisplayPatients IN HERE!");
         refreshList();
 
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -46,7 +47,6 @@ public class NewTaskActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_new_task);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     //setupStaticFields();
     setupFormHandler();
   }
@@ -163,6 +163,23 @@ public class NewTaskActivity extends AppCompatActivity {
   }
 
   @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        finish();
+        break;
+    }
+    return true;
+  }
+
+  @Override
+  public void onBackPressed()
+  {
+    finish();
+    return;
+  }
+
+  @Override
   protected Dialog onCreateDialog(int id) {
     switch (id) {
       case TIME_DIALOG_ID:
@@ -171,6 +188,8 @@ public class NewTaskActivity extends AppCompatActivity {
     }
     return null;
   }
+
+
 }
 
 class ColorSpinnerAdapter extends ArrayAdapter<String> {
@@ -207,6 +226,9 @@ class ColorSpinnerAdapter extends ArrayAdapter<String> {
 
     return entry;
   }
+
+
+
 
 }
 
