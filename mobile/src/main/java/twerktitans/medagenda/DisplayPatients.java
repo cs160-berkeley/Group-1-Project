@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
@@ -34,6 +35,17 @@ import java.util.LinkedList;
 
 public class DisplayPatients extends AppCompatActivity {
 
+    public static class AlarmTuple<task, time> {
+        public String task;
+        public long time;
+        public AlarmTuple(String taskName, long alarmTime) {
+            this.task = taskName;
+            this.time = alarmTime;
+        }
+    }
+
+
+    static ArrayList<AlarmTuple> alarmTimes = new ArrayList<AlarmTuple>();
     static LinkedList<Patient> patients;
     static boolean firstTime = true;
     @Override
