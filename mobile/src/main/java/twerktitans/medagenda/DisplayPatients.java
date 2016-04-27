@@ -20,6 +20,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,11 +82,21 @@ public class DisplayPatients extends AppCompatActivity {
                 NdefRecord ndr = ((NdefMessage) rawMsgs[0]).getRecords()[0];
                 String nfcStr = new String(Arrays.copyOfRange(ndr.getPayload(), 3, ndr.getPayload().length) );
                 Log.d("NFC Works", nfcStr);
+                Toast.makeText(getApplicationContext(), nfcStr, Toast.LENGTH_LONG);
 
-                Intent detailIntent = new Intent(DisplayPatients.this, PatientDetails.class);
-                int position = 0; // dummy
-                detailIntent.putExtra("INDEX", position);
-                startActivity(detailIntent);
+                // Given the room number, it will get the index and then fire off the
+                // detailed view activity and to - do list activity.
+                int patient_index = -1;
+                for (int i = 0; i < patients.size(); i += 1) {
+                    if (patients.get(i).room.equals(nfcStr)) {
+                        patient_index = i;
+                        break;
+                    }
+                }
+                if (patient_index != -1) {
+                    // sends information to both mobile detailed view and watch.
+                    sendIntents(patient_index);
+                }
             }
         }
 
@@ -155,26 +166,29 @@ public class DisplayPatients extends AppCompatActivity {
         patientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent detailIntent = new Intent(DisplayPatients.this, PatientDetails.class);
-                detailIntent.putExtra("INDEX", position);
-                startActivity(detailIntent);
-
-                //Start Wear Service
-                Patient p = patients.get(position);
-                String s = p.getName() + ";" + position + ";";
-                for (int i = 0; i < p.getTaskSize(); i += 1) {
-                    s += p.getTasks().get(i).details+ ";";
-                    s += p.getTasks().get(i).getTaskTime() + ";";
-                }
-                s = s.substring(0, s.length() - 1);
-                Log.v("MAIN_ACTIVITY", "s is: " + s);
-                Intent sendToWear = new Intent(DisplayPatients.this, PhoneToWatchService.class);
-                sendToWear.putExtra("Data", s);
-                sendToWear.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                DisplayPatients.this.startService(sendToWear);
-                Log.v("DEBUG_TAG", "started Wear Activity");
+                sendIntents(position);
             }
         });
+    }
+
+    protected void sendIntents(int position) {
+        Intent detailIntent = new Intent(DisplayPatients.this, PatientDetails.class);
+        detailIntent.putExtra("INDEX", position);
+        startActivity(detailIntent);
+
+        Patient p = patients.get(position);
+        String s = p.getName() + ";" + position + ";";
+        for (int i = 0; i < p.getTaskSize(); i += 1) {
+            s += p.getTasks().get(i).details+ ";";
+            s += p.getTasks().get(i).getTaskTime() + ";";
+        }
+        s = s.substring(0, s.length() - 1);
+        Log.v("MAIN_ACTIVITY", "s is: " + s);
+        Intent sendToWear = new Intent(DisplayPatients.this, PhoneToWatchService.class);
+        sendToWear.putExtra("Data", s);
+        sendToWear.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        DisplayPatients.this.startService(sendToWear);
+        Log.v("DEBUG_TAG", "started Wear Activity");
     }
 
     public void onStart()
