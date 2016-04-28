@@ -2,15 +2,13 @@ package twerktitans.medagenda;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,7 +78,7 @@ public class NewPatientActivity extends AppCompatActivity {
         else {
           p.firstName = firstName.getText().toString();
           p.lastName = lastName.getText().toString();
-          p.room = room.getText().toString();
+          p.room = "Rm. " + room.getText().toString();
 
           DisplayPatients.patients.add(p);
           finish();
