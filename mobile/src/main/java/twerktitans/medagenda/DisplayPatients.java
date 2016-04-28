@@ -72,6 +72,7 @@ public class DisplayPatients extends AppCompatActivity {
                 if (t.minBtwRepeats > 0) {
                     t.time.add(Calendar.MINUTE, t.minBtwRepeats);
                     NotificationMaker.makeAlarm(this, t);
+                    Collections.sort(patients.get(pos).tasks);
                 }
                 else {
                     patients.get(indx).deleteTask(pos);
