@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -43,10 +42,10 @@ public class PostInfo {
     }
 
     // To add a new task
-    public PostInfo(Context context, int index, int patient_id, String details,
+    public PostInfo(Context context, int patient_id, String details,
                     String time_due, int color, int repeat_time) {
         activity = (Activity) context;
-        this.index = index;
+        this.option = "tasks";
         this.details = details;
         this.patient_id = patient_id;
         this.time_due = time_due;
@@ -56,11 +55,11 @@ public class PostInfo {
     }
 
     // To add a new status
-    public PostInfo(Context context, int index, int patient_id, String details,
+    public PostInfo(Context context, int patient_id, String details,
                     String time_expire) {
         activity = (Activity) context;
-        this.index = index;
         this.type="newStatus";
+        this.option = "status";
         this.patient_id = patient_id;
         this.details = details;
         this.time_expire = time_expire;
@@ -86,17 +85,17 @@ public class PostInfo {
                             "&room=" + URLEncoder.encode(room_num, "UTF-8") +
                             "&dob=" + URLEncoder.encode(dob, "UTF-8");
                 } else if (type.equals("newTask")){
-                    link = "https://medagenda-backend.herokuapp.com/patients/" + index + "/" + option;
+                    link = "https://medagenda-backend.herokuapp.com/patients/" + patient_id + "/" + option;
                     param = "patient_id=" + URLEncoder.encode(Integer.toString(patient_id), "UTF-8") +
                             "&details=" + URLEncoder.encode(details, "UTF-8") +
                             "&time_due=" + URLEncoder.encode(time_due, "UTF-8") +
                             "&color=" + URLEncoder.encode(Integer.toString(color), "UTF-8") +
                             "&repeat_time=" + URLEncoder.encode(Integer.toString(repeat_time), "UTF-8");
                 } else {
-                    link = "https://medagenda-backend.herokuapp.com/patients/" + index + "/" + option;
-                    param = "patient_id" + URLEncoder.encode(Integer.toString(patient_id), "UTF-8") +
-                            "&details" + URLEncoder.encode(details, "UTF-8") +
-                            "&time_expire" + URLEncoder.encode(time_expire, "UTF-8");
+                    link = "https://medagenda-backend.herokuapp.com/patients/" + patient_id + "/" + option;
+                    param = "patient_id=" + URLEncoder.encode(Integer.toString(patient_id), "UTF-8") +
+                            "&details=" + URLEncoder.encode(details, "UTF-8") +
+                            "&time_expire=" + URLEncoder.encode(time_expire, "UTF-8");
                 }
 
                 URL url = new URL(link);
@@ -111,11 +110,12 @@ public class PostInfo {
                 out.flush();
                 out.close();
 
-                String response = "";
-                Scanner inStream = new Scanner(connection.getInputStream());
-                //process the stream and store it in StringBuilder
-                while (inStream.hasNextLine())
-                    response += (inStream.nextLine());
+//                String response = "";
+//                Scanner inStream = new Scanner(connection.getInputStream());
+//                //process the stream and store it in StringBuilder
+//                while (inStream.hasNextLine())
+//                    response += (inStream.nextLine());
+//                System.out.println("response is: " + response);
                 activity.finish();
 
             } catch (MalformedURLException e) {

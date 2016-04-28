@@ -143,9 +143,9 @@ public class NewTaskActivity extends AppCompatActivity {
           int day = temp.get(Calendar.DAY_OF_MONTH);
           String time_due = "" + month + "-" + day + "-" + year;
 
-
           DisplayPatients.patients.get(index).tasks.add(newTask);
-          PostInfo post_data = new PostInfo(NewTaskActivity.this, index, index, newTask.details,
+          int pid = DisplayPatients.patients.get(index).getPatientID();
+          PostInfo post_data = new PostInfo(NewTaskActivity.this, pid, newTask.details,
                                             newTask.getTaskTime(), newTask.iconIndex, newTask.minBtwRepeats);
           post_data.executePostRequest();
         }

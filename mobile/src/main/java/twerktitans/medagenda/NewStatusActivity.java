@@ -88,8 +88,8 @@ public class NewStatusActivity extends AppCompatActivity {
           }
           status.details = detailsEdit.getText().toString();
           DisplayPatients.patients.get(index).statuses.add(status);
-
-          PostInfo post_data = new PostInfo(NewStatusActivity.this, index, index, status.details,
+          int pid = DisplayPatients.patients.get(index).getPatientID();
+          PostInfo post_data = new PostInfo(NewStatusActivity.this, pid, status.details,
                                             status.getStatusTime());
           post_data.executePostRequest();
 //          finish();
