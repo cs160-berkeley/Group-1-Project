@@ -119,6 +119,7 @@ public class NewTaskActivity extends AppCompatActivity {
 
     final EditText minEdit = (EditText) findViewById(R.id.editNewTaskMinutes);
     final int index = getIntent().getIntExtra("INDEX", 0);
+    final Context thisContext = this;
     Button addTask = (Button) findViewById(R.id.btnNewStatusAdd);
     addTask.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -138,6 +139,7 @@ public class NewTaskActivity extends AppCompatActivity {
           getRepeats();
 
           DisplayPatients.patients.get(index).tasks.add(newTask);
+          NotificationMaker.makeAlarm(thisContext, newTask);
           finish();
         }
       }
@@ -188,8 +190,6 @@ public class NewTaskActivity extends AppCompatActivity {
     }
     return null;
   }
-
-
 }
 
 class ColorSpinnerAdapter extends ArrayAdapter<String> {

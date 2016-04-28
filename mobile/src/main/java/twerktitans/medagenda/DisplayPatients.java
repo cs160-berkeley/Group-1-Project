@@ -1,5 +1,7 @@
 package twerktitans.medagenda;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.nfc.NdefMessage;
@@ -32,6 +34,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class DisplayPatients extends AppCompatActivity {
@@ -65,7 +68,14 @@ public class DisplayPatients extends AppCompatActivity {
                 String [] indices = extras.getString("tasks").split(";");
                 int indx = Integer.parseInt(indices[0]);
                 int pos = Integer.parseInt(indices[1]);
-                patients.get(indx).deleteTask(pos);
+                Task t = patients.get(indx).tasks.get(pos);
+                if (t.minBtwRepeats > 0) {
+                    t.time.add(Calendar.MINUTE, t.minBtwRepeats);
+                    NotificationMaker.makeAlarm(this, t);
+                }
+                else {
+                    patients.get(indx).deleteTask(pos);
+                }
             } else if (firstTime && extras.containsKey("json_data")) {
                 patients = new LinkedList<>();
                 parseJson(extras.getString("json_data"));
@@ -139,6 +149,7 @@ public class DisplayPatients extends AppCompatActivity {
                     } catch(Exception e){
                         Log.d("DisplayPatient", "Unable to parse time " + e.getMessage());
                     }
+                    NotificationMaker.makeAlarm(this, t);
                 }
 
                 JSONArray status_list = jsonobj.getJSONArray("status");
