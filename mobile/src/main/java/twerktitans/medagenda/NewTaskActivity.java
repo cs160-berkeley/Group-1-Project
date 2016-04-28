@@ -138,9 +138,19 @@ public class NewTaskActivity extends AppCompatActivity {
           newTask.minBtwRepeats = 0;
           getRepeats();
 
+          Calendar temp = Calendar.getInstance();
+          int year = temp.get(Calendar.YEAR);
+          int month = temp.get(Calendar.MONTH)+1;
+          int day = temp.get(Calendar.DAY_OF_MONTH);
+          String time_due = "" + month + "-" + day + "-" + year;
+
           DisplayPatients.patients.get(index).tasks.add(newTask);
+
           NotificationMaker.makeAlarm(thisContext, newTask);
-          finish();
+          int pid = DisplayPatients.patients.get(index).getPatientID();
+          PostInfo post_data = new PostInfo(NewTaskActivity.this, pid, newTask.details,
+                  newTask.getTaskTime(), newTask.iconIndex, newTask.minBtwRepeats);
+          post_data.executePostRequest();
         }
       }
 

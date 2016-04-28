@@ -79,9 +79,11 @@ public class NewPatientActivity extends AppCompatActivity {
           p.firstName = firstName.getText().toString();
           p.lastName = lastName.getText().toString();
           p.room = "Rm. " + room.getText().toString();
-
           DisplayPatients.patients.add(p);
-          finish();
+          p.setPatientID(DisplayPatients.patients.size());
+          PostInfo post_data = new PostInfo(NewPatientActivity.this, p.firstName, p.lastName,
+                                           p.room, p.dateOfBirth);
+          post_data.executePostRequest();
         }
       }
     });

@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -90,7 +88,11 @@ public class NewStatusActivity extends AppCompatActivity {
           }
           status.details = detailsEdit.getText().toString();
           DisplayPatients.patients.get(index).statuses.add(status);
-          finish();
+          int pid = DisplayPatients.patients.get(index).getPatientID();
+          PostInfo post_data = new PostInfo(NewStatusActivity.this, pid, status.details,
+                                            status.getStatusTime());
+          post_data.executePostRequest();
+//          finish();
         }
       }
     });

@@ -13,6 +13,7 @@ class Patient implements Comparable<Patient>{
   String room;
   String dateOfBirth;
   String admitDate;
+  int patient_id;
   LinkedList<Task> tasks;
   LinkedList<Status> statuses;
 
@@ -40,6 +41,14 @@ class Patient implements Comparable<Patient>{
     }
 
     return Task.getEmptyTask();
+  }
+
+  void setPatientID(int pid){
+      patient_id = pid;
+  }
+
+  int getPatientID(){
+      return patient_id;
   }
 
   int getTaskSize(){

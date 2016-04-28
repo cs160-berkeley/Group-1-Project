@@ -125,6 +125,7 @@ public class DisplayPatients extends AppCompatActivity {
                 p.dateOfBirth = jsonobj.get("dob").toString();
                 p.admitDate = "3/22/2016";
                 p.room = "Rm. " + jsonobj.get("room").toString();
+                p.setPatientID(i + 1);
                 try {
                     Date date = sdf.parse(jsonobj.get("dob").toString());
                     Calendar cal = Calendar.getInstance();
