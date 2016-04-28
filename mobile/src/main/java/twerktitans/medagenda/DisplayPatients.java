@@ -104,7 +104,6 @@ public class DisplayPatients extends AppCompatActivity {
 
     private void parseJson(String json_data) {
         try {
-            System.out.println("json is: " + json_data);
             JSONArray jsonarr = new JSONArray(json_data);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD'T'HH:mm:ss.SSS");
             for (int i = 0; i < jsonarr.length(); i += 1) {
@@ -272,6 +271,8 @@ class PatientAdapter extends BaseAdapter {
         if (firstTask.time != null) {
             if (firstTask.time.compareTo(now) <= 0) {
                 taskTime.setTextColor(context.getResources().getColor(R.color.urgent_red));
+                ImageView lateIcon = (ImageView) patientListItem.findViewById(R.id.imgPatientLateIcon);
+                lateIcon.setAlpha((float) 1.0);
             }
             else if (firstTask.time.compareTo(later) <= 0)
             {
