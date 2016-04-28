@@ -146,7 +146,7 @@ public class NewTaskActivity extends AppCompatActivity {
 
           DisplayPatients.patients.get(index).tasks.add(newTask);
           PostInfo post_data = new PostInfo(NewTaskActivity.this, index, index, newTask.details,
-                                            newTask.time, newTask.iconIndex, newTask.minBtwRepeats);
+                                            newTask.getTaskTime(), newTask.iconIndex, newTask.minBtwRepeats);
           post_data.executePostRequest();
         }
       }

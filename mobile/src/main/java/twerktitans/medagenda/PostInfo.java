@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Calendar;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -27,7 +26,7 @@ public class PostInfo {
     // New Task and Status variables
     private String details, option,time_expire;
     private int index, repeat_time, color, patient_id;
-    private Calendar time_due;
+    private String time_due;
     Activity activity;
 
 
@@ -45,7 +44,7 @@ public class PostInfo {
 
     // To add a new task
     public PostInfo(Context context, int index, int patient_id, String details,
-                    Calendar time_due, int color, int repeat_time) {
+                    String time_due, int color, int repeat_time) {
         activity = (Activity) context;
         this.index = index;
         this.details = details;
@@ -58,7 +57,7 @@ public class PostInfo {
 
     // To add a new status
     public PostInfo(Context context, int index, int patient_id, String details,
-                    Calendar time_expire) {
+                    String time_expire) {
         activity = (Activity) context;
         this.index = index;
         this.type="newStatus";

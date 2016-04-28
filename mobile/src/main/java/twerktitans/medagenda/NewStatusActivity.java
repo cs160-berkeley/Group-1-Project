@@ -90,7 +90,7 @@ public class NewStatusActivity extends AppCompatActivity {
           DisplayPatients.patients.get(index).statuses.add(status);
 
           PostInfo post_data = new PostInfo(NewStatusActivity.this, index, index, status.details,
-                                            status.time);
+                                            status.getStatusTime());
           post_data.executePostRequest();
 //          finish();
         }
