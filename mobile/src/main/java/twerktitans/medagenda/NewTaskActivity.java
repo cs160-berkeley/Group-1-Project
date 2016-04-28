@@ -137,8 +137,17 @@ public class NewTaskActivity extends AppCompatActivity {
           newTask.minBtwRepeats = 0;
           getRepeats();
 
+          Calendar temp = Calendar.getInstance();
+          int year = temp.get(Calendar.YEAR);
+          int month = temp.get(Calendar.MONTH)+1;
+          int day = temp.get(Calendar.DAY_OF_MONTH);
+          String time_due = "" + month + "-" + day + "-" + year;
+
+
           DisplayPatients.patients.get(index).tasks.add(newTask);
-          finish();
+          PostInfo post_data = new PostInfo(NewTaskActivity.this, index, index, newTask.details,
+                                            newTask.time, newTask.iconIndex, newTask.minBtwRepeats);
+          post_data.executePostRequest();
         }
       }
 
