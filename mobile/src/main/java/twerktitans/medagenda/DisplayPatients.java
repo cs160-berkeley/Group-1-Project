@@ -1,9 +1,8 @@
 package twerktitans.medagenda;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -34,7 +33,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class DisplayPatients extends AppCompatActivity {
@@ -266,10 +264,16 @@ class PatientAdapter extends BaseAdapter {
         Patient patient = patients.get(position);
 
         final View patientListItem = inflater.inflate(R.layout.patient_list_item, parent, false);
+
+        Typeface myTypeface = Typeface.createFromAsset(this.context.getAssets(), "fonts/LiberationSans-Regular.ttf");
         TextView name = (TextView) patientListItem.findViewById(R.id.textPatientName);
+        name.setTypeface(myTypeface);
         TextView room = (TextView) patientListItem.findViewById(R.id.textPatientRoom);
+        room.setTypeface(myTypeface);
         TextView task = (TextView) patientListItem.findViewById(R.id.textPatientTask);
+        task.setTypeface(myTypeface);
         TextView taskTime = (TextView) patientListItem.findViewById(R.id.textPatientTaskTime);
+        taskTime.setTypeface(myTypeface);
         ImageView icon = (ImageView) patientListItem.findViewById(R.id.imgPatientTaskIcon);
 
         name.setText(patient.getName());
@@ -297,5 +301,7 @@ class PatientAdapter extends BaseAdapter {
         }
         return patientListItem;
     }
+
+
 }
 

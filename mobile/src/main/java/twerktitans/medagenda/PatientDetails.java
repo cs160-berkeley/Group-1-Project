@@ -3,6 +3,7 @@ package twerktitans.medagenda;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
@@ -70,6 +71,12 @@ public class PatientDetails extends AppCompatActivity {
     TextView room = (TextView) findViewById(R.id.textPatientDetailRoom);
     TextView admit = (TextView) findViewById(R.id.textPatientDetailAdmitDate);
     TextView dob = (TextView) findViewById(R.id.textPatientDetailBirthday);
+
+    //Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/LiberationSans-Regular.ttf");
+    //name.setTypeface(myTypeface);
+    //room.setTypeface(myTypeface);
+    //admit.setTypeface(myTypeface);
+    //dob.setTypeface(myTypeface);
 
     name.setText(patient.getName());
     room.setText(patient.room);
@@ -241,8 +248,11 @@ class ScheduleAdapter extends BaseAdapter {
     Task task = tasks.get(position);
 
     final View taskListItem = inflater.inflate(R.layout.task_list_item, parent, false);
+    Typeface myTypeface = Typeface.createFromAsset(this.context.getAssets(), "fonts/LiberationSans-Regular.ttf");
     TextView details = (TextView) taskListItem.findViewById(R.id.textTaskDetails);
+    details.setTypeface(myTypeface);
     TextView time = (TextView) taskListItem.findViewById(R.id.textTaskTime);
+    time.setTypeface(myTypeface);
     ImageView icon = (ImageView) taskListItem.findViewById(R.id.imgTaskIcon);
 
     details.setText(task.details);
@@ -289,6 +299,8 @@ class StatusAdapter extends BaseAdapter {
     final View taskListItem = inflater.inflate(R.layout.status_list_item, parent, false);
 
     TextView details = (TextView) taskListItem.findViewById(R.id.textStatusDetails);
+    Typeface myTypeface = Typeface.createFromAsset(this.context.getAssets(), "fonts/LiberationSans-Regular.ttf");
+    details.setTypeface(myTypeface);
 
     if (status.time != null) {
       details.setText(status.details + " until " + status.getStatusTime());
