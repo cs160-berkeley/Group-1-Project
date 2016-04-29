@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="80dp">
 
         <ImageView
             android:layout_width="80dp"
@@ -27,7 +27,7 @@
             android:id="@+id/textPatientDetailName"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imageView5"
-            android:padding="8dp"
+            android:padding="3dp"
             android:textStyle="bold"
             android:textSize="20dp"/>
 
@@ -41,7 +41,7 @@
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@+id/imageView5"
             android:paddingLeft="8dp"
-            android:paddingTop="8dp"
+            android:paddingTop="3dp"
             android:paddingRight="8dp"/>
 
         <TextView
@@ -82,8 +82,8 @@
         android:layout_weight="1">
 
         <ImageView
-            android:layout_width="66dp"
-            android:layout_height="66dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:id="@+id/imageView"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
@@ -94,10 +94,10 @@
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:id="@+id/listPatientSchedule"
-            android:layout_alignParentTop="true"
             android:scrollIndicators="right"
-            android:paddingRight="6dp"
-            android:layout_alignParentRight="true"/>
+            android:paddingRight="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageView" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnAddTask"
@@ -105,7 +105,7 @@
             android:layout_height="50dp"
             android:layout_gravity="bottom|end"
             android:src="@drawable/plus_icon"
-            android:alpha="0.8"
+            android:alpha="0.65"
             android:scaleType="fitXY"
             android:clickable="true"
             app:backgroundTint="@color/actionBarColor"
@@ -134,8 +134,8 @@
         android:layout_centerHorizontal="true">
 
         <ImageView
-            android:layout_width="66dp"
-            android:layout_height="66dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:id="@+id/imageView2"
             android:src="@drawable/status_icon"
             android:padding="12dp"
@@ -146,10 +146,10 @@
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:id="@+id/listPatientStatus"
-            android:layout_alignParentTop="true"
             android:scrollIndicators="right"
             android:paddingRight="6dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageView2" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnAddStatus"
@@ -158,7 +158,7 @@
             android:layout_gravity="bottom|end"
             android:src="@drawable/plus_icon"
             android:scaleType="fitXY"
-            android:alpha="0.8"
+            android:alpha="0.65"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="6dp"

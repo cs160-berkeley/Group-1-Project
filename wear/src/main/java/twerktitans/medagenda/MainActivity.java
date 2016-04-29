@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         mTextView = (TextView) findViewById(R.id.intro_text);
-        String intro_text = "Welcome! \n Tap on patient or badge in  with phone to see tasks";
+        String intro_text = "Welcome! \n\n Tap on patient or badge in  \n with phone to see tasks";
         mTextView.setText(intro_text);
 
         if ((p == null && extras != null) || (p != null && extras != null)) {
