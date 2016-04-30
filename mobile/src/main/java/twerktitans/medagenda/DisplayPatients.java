@@ -66,11 +66,12 @@ public class DisplayPatients extends AppCompatActivity {
                 String [] indices = extras.getString("tasks").split(";");
                 int indx = Integer.parseInt(indices[0]);
                 int pos = Integer.parseInt(indices[1]);
-                Task t = patients.get(indx).tasks.get(pos);
+                Patient p = patients.get(indx);
+                Task t = p.tasks.get(pos);
                 if (t.minBtwRepeats > 0) {
                     t.time.add(Calendar.MINUTE, t.minBtwRepeats);
-                    NotificationMaker.makeAlarm(this, t);
-                    Collections.sort(patients.get(pos).tasks);
+                    NotificationMaker.makeAlarm(this, p, t);
+                    Collections.sort(p.tasks);
                 }
                 else {
                     patients.get(indx).deleteTask(pos);
@@ -149,7 +150,7 @@ public class DisplayPatients extends AppCompatActivity {
                     } catch(Exception e){
                         Log.d("DisplayPatient", "Unable to parse time " + e.getMessage());
                     }
-                    NotificationMaker.makeAlarm(this, t);
+                    NotificationMaker.makeAlarm(this, p, t);
                 }
 
                 JSONArray status_list = jsonobj.getJSONArray("status");

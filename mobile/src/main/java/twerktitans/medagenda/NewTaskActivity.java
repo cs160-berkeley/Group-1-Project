@@ -144,9 +144,10 @@ public class NewTaskActivity extends AppCompatActivity {
           int day = temp.get(Calendar.DAY_OF_MONTH);
           String time_due = "" + month + "-" + day + "-" + year;
 
-          DisplayPatients.patients.get(index).tasks.add(newTask);
+          Patient p = DisplayPatients.patients.get(index);
+          p.tasks.add(newTask);
 
-          NotificationMaker.makeAlarm(thisContext, newTask);
+          NotificationMaker.makeAlarm(thisContext, p, newTask);
           int pid = DisplayPatients.patients.get(index).getPatientID();
           PostInfo post_data = new PostInfo(NewTaskActivity.this, pid, newTask.details,
                   newTask.getTaskTime(), newTask.iconIndex, newTask.minBtwRepeats);
