@@ -40,7 +40,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@+id/imageView5"
-            android:paddingLeft="8dp"
+            android:paddingLeft="4dp"
             android:paddingTop="3dp"
             android:paddingRight="8dp"/>
 
@@ -62,7 +62,7 @@
             android:id="@+id/textPatientDetailBirthday"
             android:layout_below="@+id/textPatientDetailName"
             android:layout_toEndOf="@id/imageView5"
-            android:paddingLeft="8dp"/>
+            android:paddingLeft="4dp"/>
     </RelativeLayout>
 
     <ImageView
