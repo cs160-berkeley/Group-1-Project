@@ -115,7 +115,7 @@ public class DisplayPatients extends AppCompatActivity {
     private void parseJson(String json_data) {
         try {
             JSONArray jsonarr = new JSONArray(json_data);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD'T'HH:mm:ss.SSS");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
             for (int i = 0; i < jsonarr.length(); i += 1) {
                 Patient p = new Patient();
                 JSONObject jsonobj = jsonarr.getJSONObject(i);
@@ -123,7 +123,13 @@ public class DisplayPatients extends AppCompatActivity {
                 p.lastName = jsonobj.get("lastname").toString();
                 p.dateOfBirth = jsonobj.get("dob").toString();
                 p.admitDate = "3/22/2016";
-                p.room = "Rm. " + jsonobj.get("room").toString();
+                if (jsonobj.get("room").toString().indexOf("Rm.") < 0) {
+                    p.room = "Rm. " + jsonobj.get("room").toString();
+                }
+                else {
+                    p.room = jsonobj.get("room").toString();
+                }
+
                 p.setPatientID(i + 1);
                 try {
                     Date date = sdf.parse(jsonobj.get("dob").toString());
@@ -131,6 +137,11 @@ public class DisplayPatients extends AppCompatActivity {
                     cal.setTime(date);
                     p.dateOfBirth = (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_WEEK) + "/" +
                                     cal.get(Calendar.YEAR);
+
+                    System.out.println("_______________\n" + jsonobj.get("dob").toString());
+                    String time = cal.get(Calendar.DAY_OF_MONTH) + " " + cal.get(Calendar.MONTH) + " " + cal.get(Calendar.YEAR) + " " + cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE);
+                    System.out.println(time + "\n");
+
                 } catch(Exception e){
                     Log.d("DisplayPatient", "Unable to parse dob" + e.getMessage());
                 }
@@ -142,9 +153,12 @@ public class DisplayPatients extends AppCompatActivity {
 //                    System.out.println("details is: " + t.details);
                     t.iconIndex = -1;
                     try {
+
                         Date date = sdf.parse(lst.get("time_due").toString());
                         Calendar calendar = Calendar.getInstance();
                         calendar.setTime(date);
+                        String time = calendar.get(Calendar.DAY_OF_MONTH) + " " + calendar.get(Calendar.MONTH) + " " + calendar.get(Calendar.YEAR) + " " + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE);
+                        Log.d("T", "\t" + lst.get("time_due").toString() + "\t" + time);
                         t.time = calendar;
                         p.tasks.add(t);
                     } catch(Exception e){
