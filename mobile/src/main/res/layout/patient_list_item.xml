@@ -13,6 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:padding="12dp"
+        android:textColor="#000000"
         android:textStyle="bold"/>
 
     <TextView
@@ -22,6 +23,7 @@
         android:text="Room"
         android:id="@+id/textPatientRoom"
         android:padding="12dp"
+        android:textColor="#000000"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         />
@@ -32,6 +34,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Task"
         android:id="@+id/textPatientTask"
+
         android:padding="12dp"
         android:layout_toEndOf="@+id/imgPatientTaskIcon"
         android:singleLine="true"
@@ -44,6 +47,7 @@
         android:text="Time"
         android:id="@+id/textPatientTaskTime"
         android:padding="12dp"
+        android:textSize="22dp"
         android:layout_below="@+id/textPatientRoom"
         android:layout_alignParentEnd="true"
         android:textStyle="bold"/>
@@ -67,6 +71,6 @@
         android:layout_alignTop="@+id/textPatientTaskTime"
         android:layout_alignBottom="@+id/textPatientTaskTime"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="95dp"/>
+        android:layout_marginRight="110dp"/>
 
 </RelativeLayout>
